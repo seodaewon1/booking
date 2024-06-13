@@ -65,13 +65,14 @@ const BookDetails = () => {
                         <p>책을 찾을 수 없습니다.</p> // 책이 없을 때 메시지 표시
                     ) : (
                         books.map((book, index) => (
+
                             <Card2
                                 key={index}
                                 imageURL={book.imageURL}
                                 title={book.title}
                                 author={book.author}
                                 price={book.price}
-                                url={book.url}
+                                url={source === 'yes24' ? `https://www.yes24.com/${book.url}` : book.url}
                             />
                         ))
                     )}

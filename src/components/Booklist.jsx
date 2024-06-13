@@ -1,4 +1,3 @@
-// BookList.jsx
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../pages/Card'; // Card 컴포넌트 import
@@ -25,13 +24,13 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                 ]);
 
                 if (!kyoboResponse.ok) {
-                    throw new Error(`Kyobo server response error: ${kyoboResponse.status}`);
+                    throw new Error(`교보문고 서버 응답 오류: ${kyoboResponse.status}`);
                 }
                 if (!yes24Response.ok) {
-                    throw new Error(`Yes24 server response error: ${yes24Response.status}`);
+                    throw new Error(`Yes24 서버 응답 오류: ${yes24Response.status}`);
                 }
                 if (!aladinResponse.ok) {
-                    throw new Error(`Aladin server response error: ${aladinResponse.status}`);
+                    throw new Error(`알라딘 서버 응답 오류: ${aladinResponse.status}`);
                 }
 
                 const kyoboData = await kyoboResponse.json();
@@ -42,11 +41,20 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                 setYes24Books(yes24Data.slice(0, 4));
                 setAladinBooks(aladinData.slice(0, 4));
             } catch (error) {
-                console.error('Error fetching books:', error);
+                console.error('책을 불러오는 중 오류 발생:', error);
             }
         };
         fetchBooks();
     }, [formattedDate, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix]);
+
+    // Yes24 책 URL에서 '.jpg'를 제거하는 함수
+    const cleanYes24Url = (url) => {
+        if (url.endsWith('.jpg')) {
+            return url.slice(0, -4); // 마지막 4글자('.jpg')를 제거하여 URL 반환
+        }
+        return url; // '.jpg'가 없는 경우 그대로 반환
+    };
+
     return (
         <div className="Main__Home">
             <div className="Main__main">
@@ -62,7 +70,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                                 title={book.title}
                                 author={book.author}
                                 price={book.price}
-                                url={book.url} // book 데이터에 있는 URL 정보
+                                url={book.url} // 책의 URL 정보 사용
                             />
                         ))}
                     </ul>
@@ -77,7 +85,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                                 title={book.title}
                                 author={book.author}
                                 price={book.price}
-                                url={book.url} // book 데이터에 있는 URL 정보
+                                url={`https://www.yes24.com/${cleanYes24Url(book.url)}`} // 정리된 Yes24 책의 URL 정보
                             />
                         ))}
                     </ul>
@@ -92,7 +100,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                                 title={book.title}
                                 author={book.author}
                                 price={book.price}
-                                url={book.url} // book 데이터에 있는 URL 정보
+                                url={book.url} // 책의 URL 정보 사용
                             />
                         ))}
                     </ul>
