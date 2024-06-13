@@ -71,6 +71,7 @@ const BookDetails = () => {
                                 title={book.title}
                                 author={book.author}
                                 price={book.price}
+                                url={book.url}
                             />
                         ))
                     )}

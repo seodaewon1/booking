@@ -63,6 +63,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                                 title={book.title}
                                 author={book.author}
                                 price={book.price}
+                                url={book.url} // book 데이터에 있는 URL 정보
                             />
                         ))}
                     </ul>
@@ -77,6 +78,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                                 title={book.title}
                                 author={book.author}
                                 price={book.price}
+                                url={book.url} // book 데이터에 있는 URL 정보
                             />
                         ))}
                     </ul>
@@ -91,6 +93,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                                 title={book.title}
                                 author={book.author}
                                 price={book.price}
+                                url={book.url} // book 데이터에 있는 URL 정보
                             />
                         ))}
                     </ul>
