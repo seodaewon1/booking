@@ -7,7 +7,7 @@ const Jeppang = () => {
     const filePrefix = 'Jeppang';
     return (
         <BookList
-            title="미용사(제품)"
+            title="제빵기능사"
             kyoboBaseURL={kyoboBaseURL}
             yes24BaseURL={yes24BaseURL}
             aladinBaseURL={aladinBaseURL}

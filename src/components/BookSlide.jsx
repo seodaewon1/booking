@@ -47,9 +47,9 @@ const BookSlide = () => {
             <img src="https://image.yes24.com/goods/123817641/XL" alt="BIG MAGIC" className="book-photo" />
           </div>
           <div className="book-content">
-            <div className="book-title">BIG MAGIC</div>
-            <div className="book-author">by Elizabeth Gilbert</div>
-            <div className="book-see">See The Book</div>
+            <div className="book-title">전기기능사</div>
+            <div className="book-author">에듀윌</div>
+            <div className="book-see">Buy Now</div>
           </div>
         </div>
         <div className="book-cell">
@@ -57,9 +57,9 @@ const BookSlide = () => {
             <img src="https://image.yes24.com/goods/124219621/XL" alt="Ten Thousand Skies Above You" className="book-photo" />
           </div>
           <div className="book-content">
-            <div className="book-title">Ten Thousand Skies Above You</div>
-            <div className="book-author">by Claudia Gray</div>
-            <div className="book-see book-blue">See The Book</div>
+            <div className="book-title">정보처리기능사 실기</div>
+            <div className="book-author">이기적</div>
+            <div className="book-see book-blue">Buy Now</div>
           </div>
         </div>
         <div className="book-cell">
@@ -67,9 +67,9 @@ const BookSlide = () => {
             <img src="https://image.yes24.com/goods/123183915/XL" alt="A Tale For The Time Being" className="book-photo" />
           </div>
           <div className="book-content">
-            <div className="book-title">A Tale For The Time Being</div>
-            <div className="book-author">by Ruth Ozeki</div>
-            <div className="book-see book-pink">See The Book</div>
+            <div className="book-title">정보처리기능사 필기</div>
+            <div className="book-author">이기적</div>
+            <div className="book-see book-pink">Buy Now</div>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../pages/Card'; // Card 컴포넌트 import
-
+import 'react-datepicker/dist/react-datepicker.css';
 
 const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix }) => {
     const [kyoboBooks, setKyoboBooks] = useState([]);
@@ -16,7 +16,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
             const kyoboURL = `${kyoboBaseURL}${filePrefix}_${formattedDate}.json`;
             const yes24URL = `${yes24BaseURL}${filePrefix}_${formattedDate}.json`;
             const aladinURL = `${aladinBaseURL}${filePrefix}_${formattedDate}.json`;
-            
+
             try {
                 const [kyoboResponse, yes24Response, aladinResponse] = await Promise.all([
                     fetch(kyoboURL),
@@ -67,7 +67,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                         ))}
                     </ul>
                     <span><Link to={`/kyobo/${filePrefix}`}>전체보기</Link></span>
-                    
+
                     <h2 className='sky'>Yes24</h2>
                     <ul className="book-list">
                         {yes24Books.map((book, index) => (
@@ -81,7 +81,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                         ))}
                     </ul>
                     <span><Link to={`/yes24/${filePrefix}`}>더보기</Link></span>
-                    
+
                     <h2 className='green'>알라딘</h2>
                     <ul className="book-list">
                         {aladinBooks.map((book, index) => (

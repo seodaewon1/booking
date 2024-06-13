@@ -1,94 +1,97 @@
 .flickity-viewport {
-    overflow: hidden;
-    position: relative;
-    height: 500px; /* 변경된 높이 값 */
-  }
-  
-  .flickity-slider {
-    position: absolute;
-    width: 100%;
-    display: flex;
-  }
-  
+  overflow: hidden;
+  position: relative;
+  height: 500px;
+  /* 변경된 높이 값 */
+}
+
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  display: flex;
+}
+
+.book-slide {
+  width: 100%;
+}
+
+.book {
+  background: #fff;
+}
+
+.book-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  width: 80%;
+  background-color: #fff7ef;
+  /* 슬라이드가 화면 전체를 차지하도록 */
+  // margin: 0;
+  height: 500px;
+  /* 모든 슬라이드의 높이 고정 */
+}
+
+.book-cell:nth-child(1) {
+  background-color: #fff0e0;
+}
+
+.book-cell:nth-child(2) {
+  background-color: #fce2c6;
+}
+
+.book-cell:nth-child(3) {
+  background-color: #f0dbc4;
+}
+
+
+
+.book-photo {
+  width: 300px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  box-shadow: -2px 6px 19px 0px #7f818e;
+  transition: .3s ease;
+}
+
+.book-photo:hover {
+  transform: scale(1.03);
+}
+
+.book-content {
+  padding: 30px;
+  color: #000000;
+}
+
+.book-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.book-author {
+  margin-top: 3px;
+  font-size: 1rem;
+}
+
+.book-see {
+  margin-top: 25px;
+  text-align: center;
+  background-color: #fff;
+  color: var(--black);
+  font-weight: 600;
+  padding: 8px;
+  font-size: 14px;
+  width: 160px;
+  border-radius: 20px;
+}
+
+.book-see:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+@media(max-width: 500px) {
   .book-slide {
-    width: 100%;
+    width: 500px;
   }
-  
-  .book {
-    background: #fff;
-  }
-  
-  .book-cell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
-    width: 80%; /* 슬라이드가 화면 전체를 차지하도록 */
-    // margin: 0;
-    height: 500px; /* 모든 슬라이드의 높이 고정 */
-  }
-  
-  .book-cell:nth-child(1) { background-color: #be7c1296; }
-  .book-cell:nth-child(2) { background-color: #edd9b9; }
-  .book-cell:nth-child(3) { background-color: #edd9b9; }
-  .book-cell:nth-child(4) { background-color: #edd9b9; }
-  .book-cell:nth-child(5) { background-color: #edd9b9; }
-  
-  .book-photo {
-    width: 300px;
-    flex-shrink: 0;
-    border-radius: 2px;
-    box-shadow: -2px 6px 19px 0px #7f818e;
-    transition: .3s ease;
-  }
-  
-  .book-photo:hover {
-    transform: scale(1.03);
-  }
-  
-  .book-content {
-    padding: 20px;
-    color: #ffffff;
-  }
-  
-  .book-title {
-    font-weight: 600;
-  }
-  
-  .book-author {
-    margin-top: 3px;
-    font-size: 14px;
-  }
-  
-  .book-see {
-    margin-top: 25px;
-    text-align: center;
-    background-color: #fff;
-    color: #fbadaf;
-    font-weight: 600;
-    padding: 8px;
-    font-size: 14px;
-    width: 160px;
-    border-radius: 20px;
-  }
-  
-  .book-see:hover {
-    color: #ff6e72;
-  }
-  
-  .book-blue .book-see {
-    color: #a4e0eb;
-  }
-  
-  .book-blue .book-see:hover {
-    color: #22cdec;
-  }
-  
-  .book-pink .book-see {
-    color: #edb9d6;
-  }
-  
-  .book-pink .book-see:hover {
-    color: #ff6dbe;
-  }
-  
+}

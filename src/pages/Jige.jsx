@@ -7,7 +7,7 @@ const Jige = () => {
     const filePrefix = 'Jige';
     return (
         <BookList
-            title="미용사(지게)"
+            title="지게차운전기능사"
             kyoboBaseURL={kyoboBaseURL}
             yes24BaseURL={yes24BaseURL}
             aladinBaseURL={aladinBaseURL}

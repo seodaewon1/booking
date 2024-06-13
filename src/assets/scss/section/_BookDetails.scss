@@ -15,13 +15,13 @@
     width: 1200px;
     position: relative;
     justify-content: space-between;
-    
-    h1{
-      font-size: 3rem;
-      font-family: "BookkMyungjo-Bd";
-      text-align: center;
-      padding: 30px;
-  }
+
+    h1 {
+        font-size: 3rem;
+        font-family: "BookkMyungjo-Bd";
+        text-align: center;
+        padding: 30px;
+    }
 
     h2 {
         font-size: 1.5rem;
@@ -32,11 +32,12 @@
         padding: 10px;
     }
 
-    span{
-       display: flex;
-       justify-content: center;
-       border-bottom: 1px solid #4140402a;
-       margin-bottom: 50px;
+    span {
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid #4140402a;
+        margin-bottom: 50px;
+
         a {
             margin-bottom: 78px;
             text-align: center;
@@ -59,58 +60,79 @@
 
 }
 
-  .book-list2 {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 100px;
-      gap: 10px;
-  }
+.book-item2:hover,
+.book-item2:focus-within {
+    align-items: center;
 
-  .book-item2 {
-      display: flex;
-      flex-direction: column;
-      border-radius: 4px;
-      width: 230px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
+    &:before {
+        transform: translateY(-4%);
+    }
 
-      &:hover {
-          box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-          transition: 0.3s;
-      }
+    &:after {
+        transform: translateY(-50%);
+    }
 
-      h3 {
-          font-size: 16px;
-          padding: 10px;
-          height: 100px;
-          text-align: center;
-      }
+    .content {
+        transform: translateY(-200px);
 
-      p {
-          font-size: 14px;
-          padding: 10px;
-          color: #4E4E4E;
-          text-align: center;
-      }
+        >*:not(.title) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: calc(var(--d) / 8);
+        }
+    }
+}
 
-      .book-image2 {
-          height: 200px;
-          padding: 20px 30px 20px 30px;
-          margin-bottom: 10px;
-          margin: 0 auto;
-          object-fit: cover;
-          object-fit: contain;
-          background-color: #fae9d570;
-      }
+.book-list2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    gap: 10px;
+}
 
-      .price {
-          font-size: 16px;
-          color: #ff0101;
-      }
-      
-  }
-  .BookDetails {
-    
+.book-item2 {
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+        color: #ffffff;
+    }
+
+    h3 {
+        font-size: 16px;
+        padding: 10px;
+        height: 100px;
+        text-align: center;
+    }
+
+    p {
+        font-size: 14px;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .book-image2 {
+        height: 200px;
+        padding: 30px;
+        margin-bottom: 10px;
+        margin: 0 auto;
+        object-fit: contain;
+        background-color: #ffffff;
+    }
+
+    .price {
+        font-size: 16px;
+        color: #ff0101;
+    }
+
+}
+
+.BookDetails {
+
     .date {
         text-align: right;
         margin-bottom: 10px;
@@ -121,8 +143,8 @@
             padding-right: 10px;
             font-size: 12px;
         }
-        
-    
+
+
         svg {
             width: 34px;
             height: 34px;
@@ -134,9 +156,9 @@
             text-align: right;
             width: 140px;
             font-weight: 600;
-            
+
         }
-        
+
     }
 
     .date2 {
