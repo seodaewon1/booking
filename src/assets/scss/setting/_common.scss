@@ -1,8 +1,24 @@
 body {
     background-color: #fff7ef;
     color: var(--black);
+    overflow-y: scroll; /* 세로 스크롤만 보이도록 설정 */
 }
 
+/* 사용자 정의 스크롤바 스타일 */
+body::-webkit-scrollbar {
+    width: 0; /* 너비를 0으로 설정하여 숨김 */
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent; /* 스크롤바 트랙 배경을 투명으로 설정 */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: transparent; /* 스크롤바 썸 배경을 투명으로 설정 */
+    border: none; /* 테두리 없음 */
+}
+
+/* 나머지 CSS 코드들 */
 footer {
     width: 100%;
     height: 150px;

@@ -14,6 +14,7 @@
   color: rgb(0, 0, 0);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, padding 0.3s;
+  justify-content: space-between;
 }
 
 .header.scrolled {
@@ -23,18 +24,16 @@
 
 // logo
 .logo {
+  margin-top: -8px;
   font-size: 1.5em;
   font-weight: bold;
 }
 
 // nav
-nav {
-  margin: 0 auto;
-}
-
 .nav-links {
   list-style: none;
   display: flex;
+  justify-content: center;
   gap: 20px;
   font-size: 1rem;
 
@@ -48,35 +47,44 @@ nav {
 
       &:hover {
         text-decoration: underline;
+        text-underline-position: under;
       }
     }
   }
 }
 
 .button-grid {
-  position: absolute;
-  right: 20px;
 
   span {
     display: block;
-    width: 30px;
-    height: 30px;
-    background-color: var(--black);
     cursor: pointer;
-    float: right;
+    margin-bottom: 30px;
+    width: 160px;
+    &:hover {
+      text-decoration: underline;
+      text-underline-position: under;
+    }
+    
   }
+  
 
   .button-grid__button {
     display: none;
-    background-color: #fff2e2ce;
+    background-color: #F3F1ED;
+  
 
     h2 {
-      font-size: 1rem;
       padding: 10px 20px;
+      font-size: 0.9rem;
+      &:hover{
+        text-decoration: underline;
+        text-underline-position: under;
+      }
     }
   }
 
   .button-grid__button.visible {
     display: block;
+   
   }
 }

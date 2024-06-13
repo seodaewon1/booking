@@ -2,15 +2,20 @@ import React, { useState, useEffect } from 'react';
 import headermenus from '../../data/headerMenu';
 
 const Header = () => {
-  
-
   const [scrolled, setScrolled] = useState(false);
   const [buttonGridVisible, setButtonGridVisible] = useState(false);
+  const [buttonGridButtonBackground, setButtonGridButtonBackground] = useState('#fff2e2ce'); // 초기 배경색 설정
 
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 0;
       setScrolled(isScrolled);
+      // 스크롤 여부에 따라 배경색 변경
+      if (isScrolled) {
+        setButtonGridButtonBackground('rgba(243, 241, 237, 0.849)');
+      } else {
+        setButtonGridButtonBackground('#F3F1ED');
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -27,7 +32,7 @@ const Header = () => {
   return (
     <div className="header__wrap">
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-        <div className="logo">MyLogo</div>
+        <div className="logo">Booking</div>
         <nav>
           <ul className="nav-links">
             <li><a href="/">Home</a></li>
@@ -35,9 +40,9 @@ const Header = () => {
           </ul>
         </nav>
         <div className='button-grid'>
-          <span onClick={toggleButtonGrid}></span>
+          <span onClick={toggleButtonGrid}>Menu</span>
           {headermenus.map((menu, index) => (
-            <div key={index} className={`button-grid__button ${buttonGridVisible ? 'visible' : ''}`}>
+            <div key={index} className={`button-grid__button ${buttonGridVisible ? 'visible' : ''}`} style={{ backgroundColor: buttonGridButtonBackground }}>
               <h2>
                 <a href={menu.src}>{menu.title}</a>
               </h2>

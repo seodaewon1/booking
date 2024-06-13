@@ -28,11 +28,11 @@
     height: 500px; /* 모든 슬라이드의 높이 고정 */
   }
   
-  .book-cell:nth-child(1) { background-color: #fbadaf; }
-  .book-cell:nth-child(2) { background-color: #a4e0eb; }
-  .book-cell:nth-child(3) { background-color: #edb9d6; }
+  .book-cell:nth-child(1) { background-color: #be7c1296; }
+  .book-cell:nth-child(2) { background-color: #edd9b9; }
+  .book-cell:nth-child(3) { background-color: #edd9b9; }
   .book-cell:nth-child(4) { background-color: #edd9b9; }
-  .book-cell:nth-child(5) { background-color: #b9e7ed; }
+  .book-cell:nth-child(5) { background-color: #edd9b9; }
   
   .book-photo {
     width: 300px;
@@ -47,7 +47,7 @@
   }
   
   .book-content {
-    padding: 0 20px;
+    padding: 20px;
     color: #ffffff;
   }
   

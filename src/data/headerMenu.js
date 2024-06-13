@@ -51,10 +51,10 @@ export const headermenus = [
         title: "미용사(피부)",
         src: "/Pibu"
     },
-    {
-        title: "소방설비기사 ",
-        src: "/Sobang"
-    },
+    // {
+    //     title: "소방설비기사 ",
+    //     src: "/Sobang"
+    // },
 ];
 
 export default headermenus;
