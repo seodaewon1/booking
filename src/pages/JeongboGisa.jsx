@@ -7,7 +7,7 @@ const JeongboGisa = () => {
     const filePrefix = 'JeongboGisa';
     return (
         <BookList
-            title="정보기사"
+            title="정보처리기사"
             kyoboBaseURL={kyoboBaseURL}
             yes24BaseURL={yes24BaseURL}
             aladinBaseURL={aladinBaseURL}

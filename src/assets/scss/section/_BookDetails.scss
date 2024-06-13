@@ -137,6 +137,7 @@
         text-align: right;
         margin-bottom: 10px;
         padding: 10px;
+        z-index: 1000;
 
         p {
             margin-bottom: 10px;
@@ -164,5 +165,9 @@
     .date2 {
         display: flex;
         justify-content: right;
+
+        .react-datepicker__month {
+            z-index: 1000;
+        }
     }
 }

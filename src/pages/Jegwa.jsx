@@ -10,7 +10,7 @@ const Jegwa = () => {
 
     return (
         <BookList
-            title="제과"
+            title="제과기능사"
             kyoboBaseURL={kyoboBaseURL}
             yes24BaseURL={yes24BaseURL}
             aladinBaseURL={aladinBaseURL}

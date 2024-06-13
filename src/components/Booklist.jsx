@@ -47,7 +47,6 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
         };
         fetchBooks();
     }, [formattedDate, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix]);
-
     return (
         <div className="Main__Home">
             <div className="Main__main">

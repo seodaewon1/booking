@@ -52,8 +52,7 @@
   border-radius: 2px;
   box-shadow: -2px 6px 19px 0px #7f818e;
   transition: .3s ease;
-
-
+  margin-left: 20px;
 }
 
 .book-photo:hover {
@@ -61,40 +60,45 @@
 }
 
 .book-content {
-  padding: 30px;
   color: #000000;
 
-
+  text-align: center;
 }
 
 .book-title {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: var(--mainKorfont);
 }
 
 .book-author {
   margin-top: 5px;
   margin-bottom: 5px;
   font-size: 1rem;
+  font-family: var(--mainKorfont);
 }
 
 .book-desc {
   font-size: 1rem;
   width: 700px;
   color: #686868;
+  font-family: var(--mainKorfont);
+  margin-bottom: 20px;
 }
 
 
 .book-see {
   margin-top: 25px;
   text-align: center;
+  margin: 10px auto;
   background-color: #fff;
   color: var(--black);
-  font-weight: 600;
+  font-size: 16px;
   padding: 8px;
-  font-size: 14px;
   width: 160px;
   border-radius: 20px;
+  font-weight: 600;
+  font-family: var(--mainEngfont);
 }
 
 .book-see:hover {

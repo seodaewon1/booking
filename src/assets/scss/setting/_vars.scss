@@ -1,6 +1,6 @@
 :root {
-    --mainkorfont: "BookkMyungjo-Bd";
-    --mainengfont: "BookkMyungjo-Bd";
+    --mainKorfont: "BookkMyungjo-Bd";
+    --mainEngfont: "Playfair Display", serif;
     --mainfont-nexon: "nexonLv1";
 
     --black: #000;
@@ -19,7 +19,7 @@
     --white600: #FFFFFD;
 
     // 폰트 셋팅
-    font-family: var(--mainfont-nanum), var(--mainfont-nexon);
+    font-family: var(--mainKorfont), var(--mainEngfont);
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;

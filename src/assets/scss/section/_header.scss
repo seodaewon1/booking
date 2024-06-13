@@ -15,6 +15,7 @@
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, padding 0.3s;
   justify-content: space-between;
+
 }
 
 .header.scrolled {
@@ -26,14 +27,14 @@
 .logo {
   margin-top: -8px;
   font-size: 1.5em;
-  font-weight: bold;
+
 }
 
 // nav
 .nav-links {
   list-style: none;
   display: flex;
-  justify-content: center;
+
   gap: 20px;
   font-size: 1rem;
 
@@ -54,29 +55,30 @@
 }
 
 .button-grid {
-
   span {
     display: block;
     cursor: pointer;
     margin-bottom: 30px;
     width: 160px;
+
     &:hover {
       text-decoration: underline;
       text-underline-position: under;
     }
-    
   }
-  
 
   .button-grid__button {
-    display: none;
+    display: block;
     background-color: #F3F1ED;
-  
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s ease-out;
 
     h2 {
       padding: 10px 20px;
       font-size: 0.9rem;
-      &:hover{
+
+      &:hover {
         text-decoration: underline;
         text-underline-position: under;
       }
@@ -84,7 +86,8 @@
   }
 
   .button-grid__button.visible {
-    display: block;
-   
+    max-height: 500px;
+    /* 충분히 큰 값으로 설정하여 숨겨진 콘텐츠가 보이도록 함 */
+    transition: max-height 1s ease-in;
   }
 }
