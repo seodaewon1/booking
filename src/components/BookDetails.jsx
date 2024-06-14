@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { LiaCalendarAltSolid } from "react-icons/lia";
-import Card2 from '../pages/Card2'; // Card 컴포넌트 import
+import headermenus from '../data/headerMenu';
 
 const BookDetails = () => {
     const { source, filePrefix } = useParams(); // 경로 매개변수 추출
@@ -44,8 +44,17 @@ const BookDetails = () => {
     return (
         <div className="layout-container">
             <div className="BookDetails">
-                <h1>{getKoreanFilePrefix(filePrefix)}</h1>
-                <h2>{getSourceTitle(source)}</h2> {/* Display title */}
+            <div className='button-grid'>
+                    {headermenus.map((menu, index) => (
+                        <div key={index} className={`button-grid__button`}>
+                        <div className='button-title'>
+                            <Link to={menu.src}>{menu.title}</Link>
+                        </div>
+                        </div>
+                    ))}
+                </div>
+                <h1>{getSourceTitle(source)}</h1> {/* Display title */}
+                <h2>{getKoreanFilePrefix(filePrefix)}</h2>
                 <div className='date'>
                     <p>{formattedDate} 기준</p>
                     <div className='date2'>
@@ -65,15 +74,12 @@ const BookDetails = () => {
                         <p>책을 찾을 수 없습니다.</p> // 책이 없을 때 메시지 표시
                     ) : (
                         books.map((book, index) => (
-
-                            <Card2
-                                key={index}
-                                imageURL={book.imageURL}
-                                title={book.title}
-                                author={book.author}
-                                price={book.price}
-                                url={source === 'yes24' ? `https://www.yes24.com/${book.url}` : book.url}
-                            />
+                            <li key={index} className="book-item2">
+                                <img src={book.imageURL} alt={book.title} className="book-image2" />
+                                <h3>{book.title}</h3>
+                                <p>{book.author}</p>
+                                <p>{book.price}</p>
+                            </li>
                         ))
                     )}
                 </ul>

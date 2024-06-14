@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Card from '../pages/Card'; // Card 컴포넌트 import
 import 'react-datepicker/dist/react-datepicker.css';
+import ButtonGrid from './ButtonGrid';
 
 const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix }) => {
     const [kyoboBooks, setKyoboBooks] = useState([]);
@@ -16,6 +16,11 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
             const yes24URL = `${yes24BaseURL}${filePrefix}_${formattedDate}.json`;
             const aladinURL = `${aladinBaseURL}${filePrefix}_${formattedDate}.json`;
 
+            console.log('Fetching URLs:');
+            console.log('Kyobo URL:', kyoboURL);
+            console.log('Yes24 URL:', yes24URL);
+            console.log('Aladin URL:', aladinURL);
+
             try {
                 const [kyoboResponse, yes24Response, aladinResponse] = await Promise.all([
                     fetch(kyoboURL),
@@ -24,84 +29,73 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                 ]);
 
                 if (!kyoboResponse.ok) {
-                    throw new Error(`교보문고 서버 응답 오류: ${kyoboResponse.status}`);
+                    throw new Error(`Kyobo server response error: ${kyoboResponse.status}`);
                 }
                 if (!yes24Response.ok) {
-                    throw new Error(`Yes24 서버 응답 오류: ${yes24Response.status}`);
+                    throw new Error(`Yes24 server response error: ${yes24Response.status}`);
                 }
                 if (!aladinResponse.ok) {
-                    throw new Error(`알라딘 서버 응답 오류: ${aladinResponse.status}`);
+                    throw new Error(`Aladin server response error: ${aladinResponse.status}`);
                 }
 
                 const kyoboData = await kyoboResponse.json();
                 const yes24Data = await yes24Response.json();
                 const aladinData = await aladinResponse.json();
 
+                console.log('Kyobo Data:', kyoboData);
+                console.log('Yes24 Data:', yes24Data);
+                console.log('Aladin Data:', aladinData);
+
                 setKyoboBooks(kyoboData.slice(0, 4));
                 setYes24Books(yes24Data.slice(0, 4));
                 setAladinBooks(aladinData.slice(0, 4));
             } catch (error) {
-                console.error('책을 불러오는 중 오류 발생:', error);
+                console.error('Error fetching books:', error);
             }
         };
         fetchBooks();
     }, [formattedDate, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix]);
 
-    // Yes24 책 URL에서 '.jpg'를 제거하는 함수
-    const cleanYes24Url = (url) => {
-        if (url.endsWith('.jpg')) {
-            return url.slice(0, -4); // 마지막 4글자('.jpg')를 제거하여 URL 반환
-        }
-        return url; // '.jpg'가 없는 경우 그대로 반환
-    };
-
     return (
         <div className="Main__Home">
             <div className="Main__main">
                 <div className="layout-container">
-                    <h1>{title}</h1>
-
-                    <h2 className='green'>교보문고</h2>
+                    <ButtonGrid />
+                    <h1 className='green'>교보문고</h1>
                     <ul className="book-list">
                         {kyoboBooks.map((book, index) => (
-                            <Card
-                                key={index}
-                                imageURL={book.imageURL}
-                                title={book.title}
-                                author={book.author}
-                                price={book.price}
-                                url={book.url} // 책의 URL 정보 사용
-                            />
+                            <li key={index} className="book-item">
+                                <img src={book.imageURL} alt={book.title} className="book-image" />
+                                <h3>{book.title}</h3>
+                                <p>{book.author}</p>
+                                <p className='price'>{book.price}</p>
+                            </li>
                         ))}
                     </ul>
                     <span><Link to={`/kyobo/${filePrefix}`}>전체보기</Link></span>
-
-                    <h2 className='sky'>Yes24</h2>
+                    <ButtonGrid />
+                    <h1 className='sky'>Yes24</h1>
                     <ul className="book-list">
                         {yes24Books.map((book, index) => (
-                            <Card
-                                key={index}
-                                imageURL={book.imageURL}
-                                title={book.title}
-                                author={book.author}
-                                price={book.price}
-                                url={`https://www.yes24.com/${cleanYes24Url(book.url)}`} // 정리된 Yes24 책의 URL 정보
-                            />
+                            <li key={index} className="book-item">
+                                <img src={book.imageURL} alt={book.title} className="book-image" />
+                                <h3>{book.title}</h3>
+                                <p>{book.author}</p>
+                                <p className='price'>{book.price}</p>
+                            </li>
                         ))}
                     </ul>
                     <span><Link to={`/yes24/${filePrefix}`}>더보기</Link></span>
-
-                    <h2 className='green'>알라딘</h2>
+                    <ButtonGrid />
+                    <h1  className='green'>알라딘</h1>
                     <ul className="book-list">
                         {aladinBooks.map((book, index) => (
-                            <Card
-                                key={index}
-                                imageURL={book.imageURL}
-                                title={book.title}
-                                author={book.author}
-                                price={book.price}
-                                url={book.url} // 책의 URL 정보 사용
-                            />
+                            <li key={index} className="book-item">
+                                <img src={book.imageURL} alt={book.title} className="book-image" />
+                                <h3>{book.title}</h3>
+                                <p>{book.author}</p>
+                                <p className='price'>{book.price}</p>
+                            </li>
                         ))}
                     </ul>
                     <span><Link to={`/aladin/${filePrefix}`}>더보기</Link></span>

@@ -35,7 +35,7 @@
     span {
         display: flex;
         justify-content: center;
-        border-bottom: 1px solid #4140402a;
+        border-bottom: 1px solid #414040d8;
         margin-bottom: 50px;
 
         a {
@@ -53,34 +53,11 @@
             transition: all 0.3s;
 
             &:hover {
-                background-color: #ffd87e;
+                background-color: #ffe5b8;
             }
         }
     }
 
-}
-
-.book-item2:hover,
-.book-item2:focus-within {
-    align-items: center;
-
-    &:before {
-        transform: translateY(-4%);
-    }
-
-    &:after {
-        transform: translateY(-50%);
-    }
-
-    .content {
-        transform: translateY(-200px);
-
-        >*:not(.title) {
-            opacity: 1;
-            transform: translateY(0);
-            transition-delay: calc(var(--d) / 8);
-        }
-    }
 }
 
 .book-list2 {
@@ -96,23 +73,26 @@
     width: 230px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-
-    &:hover {
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-        color: #ffffff;
-    }
-
+    background-color: #ffeed1;
+    
     h3 {
         font-size: 16px;
         padding: 10px;
-        height: 100px;
+        height: 80px;
+        width: 100%;
         text-align: center;
     }
 
     p {
         font-size: 14px;
-        color: #ffffff;
+        padding: 10px;
+        color: #4E4E4E;
+        width: 100%;
         text-align: center;
+    }
+    .price {
+        font-size: 14px;
+        color: #4E4E4E;
     }
 
     .book-image2 {
@@ -124,11 +104,7 @@
         background-color: #ffffff;
     }
 
-    .price {
-        font-size: 16px;
-        color: #ffffff;
-    }
-
+    
 }
 
 .BookDetails {
