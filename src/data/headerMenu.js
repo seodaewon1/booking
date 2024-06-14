@@ -57,4 +57,20 @@ export const headermenus = [
     // },
 ];
 
-export default headermenus;
+export const detailmenus = [
+    {
+        title: "kyobo",
+        src: "/Geonseol"
+    },
+    {
+        title: "yes24",
+        src: "/Geonseol"
+    },
+    {
+        title: "aladin",
+        src: "/Geonseol"
+    },
+   
+];
+
+export default detailmenus;

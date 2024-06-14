@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { LiaCalendarAltSolid } from "react-icons/lia";
-import headermenus from '../data/headerMenu';
-
+import detailmenus from '../data/headerMenu';
 const BookDetails = () => {
     const { source, filePrefix } = useParams(); // 경로 매개변수 추출
     const [books, setBooks] = useState([]);
@@ -45,7 +44,7 @@ const BookDetails = () => {
         <div className="layout-container">
             <div className="BookDetails">
             <div className='button-grid'>
-                    {headermenus.map((menu, index) => (
+                    {detailmenus.map((menu, index) => (
                         <div key={index} className={`button-grid__button`}>
                         <div className='button-title'>
                             <Link to={menu.src}>{menu.title}</Link>

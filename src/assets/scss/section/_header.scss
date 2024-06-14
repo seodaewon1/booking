@@ -23,11 +23,9 @@
   /* 스크롤 되면 헤더의 배경색을 변경합니다. */
 }
 
-// logo
 .logo {
-  margin-top: -8px;
-  font-size: 1.5em;
-
+  margin-top: -10px;
+  font-size: 2rem;
 }
 
 // nav
@@ -44,7 +42,7 @@
     a {
       color: rgb(0, 0, 0);
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 1.2rem;
 
       &:hover {
         text-decoration: underline;

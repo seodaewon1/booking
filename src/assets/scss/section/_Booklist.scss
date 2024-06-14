@@ -12,8 +12,8 @@
   border-radius: 4px;
   width: 250px;
   cursor: pointer;
-  background-color: #ffeed1;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff9ee;
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   &:hover {
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
@@ -21,6 +21,8 @@
   }
 
   h3 {
+    display: flex;
+    align-items: center;
       font-size: 16px;
       padding: 10px;
       height: 80px;
@@ -35,10 +37,10 @@
       width: 100%;
       text-align: center;
   }
-  .price {
-    font-size: 14px;
-    color: #4E4E4E;
-}
+.price {
+      font-size: 14px;
+      color: #4E4E4E;
+  }
   .book-image {
       height: 300px;
       padding: 30px;
