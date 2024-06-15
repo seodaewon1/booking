@@ -11,7 +11,7 @@ const BookDetails = () => {
     const [fetchDate, setFetchDate] = useState(new Date('2024-06-13')); // 시작 날짜를 6월 13일로 설정
     const formattedDate = fetchDate.toISOString().slice(0, 10); // YYYY-MM-DD 형식으로 변환
     const today = new Date();
-
+    const [activeButton, setActiveButton] = useState(0); // 활성화된 버튼 인덱스 상태 추가
     useEffect(() => {
         const fetchBooks = async () => {
             console.log('source:', source); // source 값 확인
@@ -47,15 +47,19 @@ const BookDetails = () => {
             <div className="layout-container">
                 <div className="BookDetails">
                     <div className='button-grid'>
-                        {headermenus.map((menu, index) => (
-                            <div key={index} className={`button-grid__button`}>
+                        {detailmenus.map((menu, index) => (
+                            <div
+                                key={index}
+                                className={`button-grid__button ${index === activeButton ? 'active' : ''}`}
+                                onClick={() => setActiveButton(index)}
+                            >
                                 <div className='button-title'>
                                     <Link to={`${menu.src}/${filePrefix}`}>{menu.title}</Link>
                                 </div>
                             </div>
                         ))}
                     </div>
-                    <h1>{getSourceTitle(source)}</h1> {/* Display title */}
+                    {/* <h1>{getSourceTitle(source)}</h1> Display title */}
                     <h2>{getKoreanFilePrefix(filePrefix)}</h2>
                     <div className='date'>
                         <p>{formattedDate} 기준</p>

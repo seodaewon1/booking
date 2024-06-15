@@ -1,6 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-const Header = () => {
+const Header = ({ onSearch }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = () => {
+    onSearch(searchTerm);
+  };
+
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
   return (
     <div className="header__wrap">
@@ -8,13 +17,19 @@ const Header = () => {
       <nav>
         <ul className="nav-links">
           <li>
-            <a href="https://www.q-net.or.kr/crf021.do?id=crf02103&gSite=Q&gId=&CST_ID=CRF_Stns_06" target="_blank" rel="noopener noreferrer">Q-net</a>
-            {/* <a href="https://www.q-net.or.kr/crf021.do?id=crf02103&gSite=Q&gId=&CST_ID=CRF_Stns_06" target="_blank" rel="noopener noreferrer">Schedule</a>
-            <a href="https://www.q-net.or.kr/crf021.do?id=crf02103&gSite=Q&gId=&CST_ID=CRF_Stns_06" target="_blank" rel="noopener noreferrer">Schedule</a>
-            <a href="https://www.q-net.or.kr/crf021.do?id=crf02103&gSite=Q&gId=&CST_ID=CRF_Stns_06" target="_blank" rel="noopener noreferrer">Schedule</a> */}
+            {/* 네비게이션 메뉴 */}
           </li>
         </ul>
       </nav>
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="도서를 검색하세요"
+          value={searchTerm}
+          onChange={handleInputChange}
+        />
+        <button onClick={handleSearch}>검색</button>
+      </div>
     </div>
   );
 };
