@@ -68,7 +68,7 @@ export const detailmenus = [
         src: "/yes24"
     },
     {
-        title: "aladin",
+        title: "알라딘",
         src: "/aladin"
     },
 

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { LiaCalendarAltSolid } from "react-icons/lia";
-import headermenus from '../../data/headerMenu';
 import detailmenus from '../../data/headerMenu';
 
 const BookDetails = () => {
@@ -12,6 +11,7 @@ const BookDetails = () => {
     const formattedDate = fetchDate.toISOString().slice(0, 10); // YYYY-MM-DD 형식으로 변환
     const today = new Date();
     const [activeButton, setActiveButton] = useState(0); // 활성화된 버튼 인덱스 상태 추가
+
     useEffect(() => {
         const fetchBooks = async () => {
             console.log('source:', source); // source 값 확인
@@ -59,7 +59,6 @@ const BookDetails = () => {
                             </div>
                         ))}
                     </div>
-                    {/* <h1>{getSourceTitle(source)}</h1> Display title */}
                     <h2>{getKoreanFilePrefix(filePrefix)}</h2>
                     <div className='date'>
                         <p>{formattedDate} 기준</p>
@@ -129,8 +128,8 @@ const getKoreanFilePrefix = (filePrefix) => {
 };
 
 // Function to get source title (you can replace with actual translations)
-const getSourceTitle = (source) => {
-    switch (source) {
+const getSourceTitle = (filePrefix) => {
+    switch (filePrefix) {
         case 'kyobo':
             return '교보문고';
         case 'yes24':
@@ -138,7 +137,7 @@ const getSourceTitle = (source) => {
         case 'aladin':
             return '알라딘';
         default:
-            return source; // 번역이 없으면 원래 값 반환
+            return filePrefix; // 번역이 없으면 원래 값 반환
     }
 };
 

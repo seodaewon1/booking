@@ -1,8 +1,10 @@
+// BookList.js
+
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar'; // 검색 바 컴포넌트 import
 import 'react-datepicker/dist/react-datepicker.css';
 import ButtonGrid from '../section/ButtonGrid';
-import Header from './Header'; // Header 컴포넌트 import 추가
 
 const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix }) => {
     const [kyoboBooks, setKyoboBooks] = useState([]);
@@ -17,11 +19,6 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
             const kyoboURL = `${kyoboBaseURL}${filePrefix}_${formattedDate}.json`;
             const yes24URL = `${yes24BaseURL}${filePrefix}_${formattedDate}.json`;
             const aladinURL = `${aladinBaseURL}${filePrefix}_${formattedDate}.json`;
-
-            console.log('Fetching URLs:');
-            console.log('Kyobo URL:', kyoboURL);
-            console.log('Yes24 URL:', yes24URL);
-            console.log('Aladin URL:', aladinURL);
 
             try {
                 const [kyoboResponse, yes24Response, aladinResponse] = await Promise.all([
@@ -44,10 +41,6 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                 const yes24Data = await yes24Response.json();
                 const aladinData = await aladinResponse.json();
 
-                console.log('Kyobo Data:', kyoboData);
-                console.log('Yes24 Data:', yes24Data);
-                console.log('Aladin Data:', aladinData);
-
                 setKyoboBooks(kyoboData.slice(0, 6));
                 setYes24Books(yes24Data.slice(0, 6));
                 setAladinBooks(aladinData.slice(0, 6));
@@ -55,37 +48,33 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                 console.error('Error fetching books:', error);
             }
         };
+
         fetchBooks();
     }, [formattedDate, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix]);
 
     // 검색어에 따라 도서 목록을 필터링하는 함수
+    const filterBooks = (books) => {
+        return books.filter(book =>
+            book.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    };
+
+    // 검색어 입력 시 상태 업데이트
     const handleSearch = (searchTerm) => {
         setSearchTerm(searchTerm);
     };
-
-    // 필터링된 도서 목록
-    const filteredKyoboBooks = kyoboBooks.filter((book) =>
-        book.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    const filteredYes24Books = yes24Books.filter((book) =>
-        book.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    const filteredAladinBooks = aladinBooks.filter((book) =>
-        book.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
 
     return (
         <div className="Main__Home">
             <div className="Main__main">
                 <div className="layout-container">
                     <ButtonGrid />
-                    {/* 검색 기능 추가된 Header 컴포넌트 */}
-                    <Header onSearch={handleSearch} />
+                    {/* 검색 바 컴포넌트 */}
+                    <SearchBar onSearch={handleSearch} />
 
-                    {/* 교보문고 도서 목록 */}
-                    <h1>교보문고 <span><Link to={`/kyobo/${filePrefix}`}>더보기</Link></span></h1>
+                    <h1>교보문고<span><Link to={`/kyobo/${filePrefix}`}>더보기</Link></span></h1>
                     <ul className="book-list">
-                        {filteredKyoboBooks.map((book, index) => (
+                        {filterBooks(kyoboBooks).map((book, index) => (
                             <li key={index} className="book-item">
                                 <img src={book.imageURL} alt={book.title} className="book-image" />
                                 <h3>{book.title}</h3>
@@ -94,10 +83,9 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                         ))}
                     </ul>
 
-                    {/* Yes24 도서 목록 */}
-                    <h1>Yes24 <span><Link to={`/yes24/${filePrefix}`}>더보기</Link></span></h1>
+                    <h1>Yes24<span><Link to={`/yes24/${filePrefix}`}>더보기</Link></span></h1>
                     <ul className="book-list">
-                        {filteredYes24Books.map((book, index) => (
+                        {filterBooks(yes24Books).map((book, index) => (
                             <li key={index} className="book-item">
                                 <img src={book.imageURL} alt={book.title} className="book-image" />
                                 <h3>{book.title}</h3>
@@ -106,10 +94,9 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                         ))}
                     </ul>
 
-                    {/* 알라딘 도서 목록 */}
                     <h1 className='green'>알라딘 <span><Link to={`/aladin/${filePrefix}`}>더보기</Link></span></h1>
                     <ul className="book-list">
-                        {filteredAladinBooks.map((book, index) => (
+                        {filterBooks(aladinBooks).map((book, index) => (
                             <li key={index} className="book-item">
                                 <img src={book.imageURL} alt={book.title} className="book-image" />
                                 <h3>{book.title}</h3>
@@ -117,7 +104,6 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                             </li>
                         ))}
                     </ul>
-
                 </div>
             </div>
         </div>
