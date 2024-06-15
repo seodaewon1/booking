@@ -76,6 +76,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                     <ul className="book-list">
                         {filterBooks(kyoboBooks).map((book, index) => (
                             <li key={index} className="book-item">
+                                <span className="book-rank">{index + 1}</span>
                                 <img src={book.imageURL} alt={book.title} className="book-image" />
                                 <h3>{book.title}</h3>
                                 <p>{book.author}</p>
@@ -87,6 +88,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                     <ul className="book-list">
                         {filterBooks(yes24Books).map((book, index) => (
                             <li key={index} className="book-item">
+                                <span className="book-rank">{index + 1}</span>
                                 <img src={book.imageURL} alt={book.title} className="book-image" />
                                 <h3>{book.title}</h3>
                                 <p>{book.author}</p>
@@ -98,6 +100,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                     <ul className="book-list">
                         {filterBooks(aladinBooks).map((book, index) => (
                             <li key={index} className="book-item">
+                                <span className="book-rank">{index + 1}</span>
                                 <img src={book.imageURL} alt={book.title} className="book-image" />
                                 <h3>{book.title}</h3>
                                 <p>{book.author}</p>

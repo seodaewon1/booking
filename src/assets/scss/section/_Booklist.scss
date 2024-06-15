@@ -86,6 +86,27 @@
   /* 다른 원하는 스타일 추가 */
 }
 
+.book-item {
+  position: relative;
+  /* 위치 지정 컨텍스트 설정 */
+}
+
+.book-rank {
+  position: absolute;
+  top: 150px;
+  left: 5px;
+  color: rgb(16, 40, 255);
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 3rem;
+  font-weight: 800;
+  text-shadow:
+    -1px -1px 0 rgb(255, 255, 255),
+    1px -1px 0 rgb(255, 255, 255),
+    -1px 1px 0 rgb(255, 255, 255),
+    1px 1px 0 rgb(255, 255, 255);
+}
 
 .search-bar {
   display: flex;
