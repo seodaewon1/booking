@@ -1,7 +1,7 @@
 .flickity-viewport {
   overflow: hidden;
   position: relative;
-  height: 500px;
+  height: 400px;
   /* 변경된 높이 값 */
 }
 
@@ -13,6 +13,7 @@
 
 .book-slide {
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .book {
@@ -22,32 +23,28 @@
 .book-cell {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 25px;
   width: 80%;
-  background-color: #fff7ef;
-  /* 슬라이드가 화면 전체를 차지하도록 */
-  // margin: 0;
-  height: 500px;
-  /* 모든 슬라이드의 높이 고정 */
+  padding: 25px;
+  border-radius: 20px;
+  height: 400px;
 }
 
 .book-cell:nth-child(1) {
-  background-color: #fff0e0;
+  background-color: #dcdcff;
 }
 
 .book-cell:nth-child(2) {
-  background-color: #fce2c6;
+  background-color: #d1deff;
 }
 
 .book-cell:nth-child(3) {
-  background-color: #f0dbc4;
+  background-color: #b1c7ff;
 }
 
 
 
 .book-photo {
-  width: 300px;
+  width: 200px;
   flex-shrink: 0;
   border-radius: 2px;
   box-shadow: -2px 6px 19px 0px #7f818e;
@@ -60,9 +57,9 @@
 }
 
 .book-content {
+  width: 600px;
+  padding: 30px;
   color: #000000;
-
-  text-align: center;
 }
 
 .book-title {
@@ -90,7 +87,6 @@
 .book-see {
   margin-top: 25px;
   text-align: center;
-  margin: 10px auto;
   background-color: #fff;
   color: var(--black);
   font-size: 16px;

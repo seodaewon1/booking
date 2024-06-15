@@ -1,26 +1,19 @@
-.Main__Home h1 {
-    font-size: 3rem;
-    font-family: "BookkMyungjo-Bd";
-    text-align: center;
-    padding: 30px;
-}
-
 .Main__main {
     list-style: none;
     margin-top: 50px;
+    padding: 30px;
 }
 
 .layout-container {
     margin: 0 auto;
-    width: 1200px;
+    width: 1060px;
     position: relative;
-    justify-content: space-between;
+    font-family: var(--mainKorfont);
 
     h1 {
-        font-size: 3rem;
-        font-family: "BookkMyungjo-Bd";
-        text-align: center;
-        padding: 30px;
+        font-weight: 600;
+        font-size: 1.5rem;
+        padding: 10px;
     }
 
     h2 {
@@ -30,30 +23,25 @@
         align-items: center;
         margin-bottom: 20px;
         padding: 10px;
+        border-bottom: 1px solid #808080;
     }
 
     span {
-        display: flex;
-        justify-content: center;
-        border-bottom: 1px solid #414040d8;
-        margin-bottom: 50px;
+        position: absolute;
+        right: 0;
 
         a {
-            margin-bottom: 78px;
             text-align: center;
             font-size: 16px;
             font-weight: 400;
-            margin-bottom: 78px;
-            text-align: center;
             cursor: pointer;
             display: inline-block;
-            padding: 10px 50px;
-            border: 1px solid rgba(85, 85, 85, 0.541);
             color: #555555;
             transition: all 0.3s;
 
             &:hover {
-                background-color: #ffe5b8;
+                text-decoration: underline;
+                text-underline-position: under;
             }
         }
     }
@@ -70,26 +58,22 @@
 .book-item2 {
     display: flex;
     flex-direction: column;
-    width: 230px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
     cursor: pointer;
-    background-color: #ffeed1;
-    
+    width: 200px;
+
     h3 {
+        display: flex;
         font-size: 16px;
         padding: 10px;
-        height: 80px;
-        width: 100%;
-        text-align: center;
     }
 
     p {
         font-size: 14px;
         padding: 10px;
         color: #4E4E4E;
-        width: 100%;
-        text-align: center;
     }
+
     .price {
         font-size: 14px;
         color: #4E4E4E;
@@ -97,14 +81,17 @@
 
     .book-image2 {
         height: 200px;
-        padding: 30px;
+        height: 233px;
         margin-bottom: 10px;
         margin: 0 auto;
+        object-fit: cover;
         object-fit: contain;
         background-color: #ffffff;
+        border: 1px solid #c9c9c9b2;
+        border-radius: 10px;
     }
 
-    
+
 }
 
 .BookDetails {

@@ -1,6 +1,6 @@
 // src/pages/IIban.jsx
 import React from 'react';
-import BookList from '../components/Booklist';
+import BookList from '../components/section/Booklist';
 
 const IIban = () => {
     const kyoboBaseURL = 'https://raw.githubusercontent.com/seodaewon1/book/main/Kyobo/IIban/';

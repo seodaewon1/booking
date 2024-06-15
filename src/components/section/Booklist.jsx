@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
-import ButtonGrid from './ButtonGrid';
+import ButtonGrid from '../section/ButtonGrid';
 
 const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix }) => {
     const [kyoboBooks, setKyoboBooks] = useState([]);
@@ -46,9 +46,9 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                 console.log('Yes24 Data:', yes24Data);
                 console.log('Aladin Data:', aladinData);
 
-                setKyoboBooks(kyoboData.slice(0, 4));
-                setYes24Books(yes24Data.slice(0, 4));
-                setAladinBooks(aladinData.slice(0, 4));
+                setKyoboBooks(kyoboData.slice(0, 10));
+                setYes24Books(yes24Data.slice(0, 10));
+                setAladinBooks(aladinData.slice(0, 10));
             } catch (error) {
                 console.error('Error fetching books:', error);
             }
@@ -57,48 +57,44 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
     }, [formattedDate, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix]);
 
     return (
+
         <div className="Main__Home">
             <div className="Main__main">
                 <div className="layout-container">
                     <ButtonGrid />
-                    <h1 className='green'>교보문고</h1>
+                    <h1>교보문고<span><Link to={`/kyobo/${filePrefix}`}>더보기</Link></span></h1>
                     <ul className="book-list">
                         {kyoboBooks.map((book, index) => (
                             <li key={index} className="book-item">
                                 <img src={book.imageURL} alt={book.title} className="book-image" />
                                 <h3>{book.title}</h3>
                                 <p>{book.author}</p>
-                                <p className='price'>{book.price}</p>
                             </li>
                         ))}
                     </ul>
-                    <span><Link to={`/kyobo/${filePrefix}`}>전체보기</Link></span>
-                    <ButtonGrid />
-                    <h1 className='sky'>Yes24</h1>
+
+                    <h1>Yes24<span><Link to={`/yes24/${filePrefix}`}>더보기</Link></span></h1>
                     <ul className="book-list">
                         {yes24Books.map((book, index) => (
                             <li key={index} className="book-item">
                                 <img src={book.imageURL} alt={book.title} className="book-image" />
                                 <h3>{book.title}</h3>
                                 <p>{book.author}</p>
-                                <p className='price'>{book.price}</p>
                             </li>
                         ))}
                     </ul>
-                    <span><Link to={`/yes24/${filePrefix}`}>더보기</Link></span>
-                    <ButtonGrid />
-                    <h1  className='green'>알라딘</h1>
+                    <h1 className='green'>알라딘 <span><Link to={`/aladin/${filePrefix}`}>더보기</Link></span></h1>
+
                     <ul className="book-list">
                         {aladinBooks.map((book, index) => (
                             <li key={index} className="book-item">
                                 <img src={book.imageURL} alt={book.title} className="book-image" />
                                 <h3>{book.title}</h3>
                                 <p>{book.author}</p>
-                                <p className='price'>{book.price}</p>
                             </li>
                         ))}
                     </ul>
-                    <span><Link to={`/aladin/${filePrefix}`}>더보기</Link></span>
+
                 </div>
             </div>
         </div>

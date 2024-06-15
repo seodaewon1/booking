@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import HomePage from './pages/Home';
 import Geonseol from './pages/Geonseol';
 import Hansik from './pages/Hansik';
-import Footer from './components/section/Footer';
-import Header from './components/section/Header';
 import IIban from './pages/IIban';
 import Jegwa from './pages/Jegwa';
 import JeongiSaneop from './pages/JeongiSaneop';
@@ -18,8 +16,11 @@ import Sobang from './pages/Sobang';
 import JeongiGisa from './pages/JeongiGisa';
 import JeongboGineung from './pages/JeongboGineung';
 import JeongboGisa from './pages/JeongboGisa';
-import BookDetails from './components/BookDetails';
+
+import BookDetails from './components/section/BookDetails';
 import Main from './components/section/Main';
+import Header from './components/section/Header';
+import Footer from './components/section/Footer';
 
 function App() {
     return (
@@ -29,7 +30,7 @@ function App() {
                 <Main />
                 <Routes>
                     {/* <Route path="/" element={<HomePage />} /> */}
-                    <Route path="/" element={<Geonseol />} />
+                    <Route path="/" element={<Jige />} />
                     <Route path="/geonseol" element={<Geonseol />} />
                     <Route path="/hansik" element={<Hansik />} />
                     <Route path="/iiban" element={<IIban />} />
@@ -44,8 +45,8 @@ function App() {
                     <Route path="/nail" element={<Nail />} />
                     <Route path="/pibu" element={<Pibu />} />
                     <Route path="/sobang" element={<Sobang />} />
-                    <Route path="/:source/:filePrefix" element={<BookDetails/>} /> {/* 동적 경로 설정 */}
-                    <Route path="/:source/:filePrefix" element={<BookDetails/>} /> {/* 동적 경로 설정 */}
+                    <Route path="/:source/:filePrefix" element={<BookDetails />} /> {/* 동적 경로 설정 */}
+                    <Route path="/:source/:filePrefix" element={<BookDetails />} /> {/* 동적 경로 설정 */}
                 </Routes>
                 <Footer />
             </div>

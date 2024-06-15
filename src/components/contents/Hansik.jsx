@@ -1,6 +1,7 @@
 // src/pages/Hansik.jsx
 import React from 'react';
 import BookDetails from '../components/BookDetails';
+import BookList from '../section/Booklist';
 
 const Hansik = () => {
     const kyoboBaseURL = 'https://raw.githubusercontent.com/seodaewon1/book/main/Kyobo/Hansik/';
@@ -8,7 +9,7 @@ const Hansik = () => {
     const filePrefix = 'Hansik';
 
     return (
-        <BookDetails
+        <BookList
             title="한식조리기능사"
             kyoboBaseURL={kyoboBaseURL}
             yes24BaseURL={yes24BaseURL}

@@ -1,5 +1,5 @@
 import React from 'react';
-import BookDetails from '../components/BookDetails';
+import BookList from '../section/Booklist';
 
 const Geonseol = () => {
     const filePrefix = 'Geonseol';
@@ -7,7 +7,7 @@ const Geonseol = () => {
     const yes24BaseURL = 'https://raw.githubusercontent.com/kimyih/Book/main/Yes24/Geonseol/';
 
     return (
-        <BookDetails
+        <BookList
             title="건설안전기사"
             kyoboBaseURL={kyoboBaseURL}
             yes24BaseURL={yes24BaseURL}

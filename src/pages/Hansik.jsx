@@ -1,6 +1,6 @@
 // src/pages/Hansik.jsx
 import React from 'react';
-import BookList from '../components/Booklist';
+import BookList from '../components/section/Booklist';
 
 const Hansik = () => {
     const kyoboBaseURL = 'https://raw.githubusercontent.com/seodaewon1/book/main/Kyobo/Hansik/';
