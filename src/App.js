@@ -44,7 +44,7 @@ function App() {
                     <Route path="/makeup" element={<Makeup />} />
                     <Route path="/nail" element={<Nail />} />
                     <Route path="/pibu" element={<Pibu />} />
-                    <Route path="/sobang" element={<Sobang />} />
+                    {/* <Route path="/sobang" element={<Sobang />} /> */}
                     <Route path="/:source/:filePrefix" element={<BookDetails />} /> {/* 동적 경로 설정 */}
                     <Route path="/:source/:filePrefix" element={<BookDetails />} /> {/* 동적 경로 설정 */}
                 </Routes>

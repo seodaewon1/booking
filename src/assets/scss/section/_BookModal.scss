@@ -1,0 +1,113 @@
+/* 기존 스타일 */
+.modal-content {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-image img {
+    width: 150px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.modal-details {
+    flex: 1;
+}
+
+.modal-details h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.modal-details p {
+    margin: 5px 0;
+}
+
+.modal-price {
+    margin: 10px 0;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 10px;
+}
+
+.discounted-price {
+    color: red;
+    font-weight: bold;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.app-button {
+    flex: 1;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.buy-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-button {
+    background-color: #ccc;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* React Modal overrides */
+.ReactModal__Overlay {
+    background-color: rgba(0, 0, 0, 0.75); /* 배경 오버레이 색상 설정 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ReactModal__Content {
+    position: relative;
+    max-width: 600px;
+    max-height: 90vh;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    outline: none; /* 포커스 스타일 제거 */
+}

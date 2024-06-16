@@ -102,6 +102,11 @@
   color: var(--white);
 }
 
+
+.book-cell {
+  margin: 0 10px;
+}
+
 @media(max-width: 500px) {
   .book-slide {
     width: 500px;

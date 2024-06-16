@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { LiaCalendarAltSolid } from "react-icons/lia";
 import detailmenus from '../../data/headerMenu';
+import BookModal from './BookModal';
 
 const BookDetails = () => {
     const { source, filePrefix } = useParams(); // 경로 매개변수 추출
@@ -11,6 +12,8 @@ const BookDetails = () => {
     const formattedDate = fetchDate.toISOString().slice(0, 10); // YYYY-MM-DD 형식으로 변환
     const today = new Date();
     const [activeButton, setActiveButton] = useState(0); // 활성화된 버튼 인덱스 상태 추가
+    const [selectedBook, setSelectedBook] = useState(null); // 선택된 책 정보 저장
+    const [isModalOpen, setIsModalOpen] = useState(false); // 모달 열림 상태
 
     useEffect(() => {
         const fetchBooks = async () => {
@@ -20,8 +23,10 @@ const BookDetails = () => {
             let baseURL = '';
             if (source === 'kyobo') {
                 baseURL = `https://raw.githubusercontent.com/seodaewon1/book/main/Kyobo/${filePrefix}/`;
-            } else {
+            } else if (source === 'yes24') {
                 baseURL = `https://raw.githubusercontent.com/kimyih/Book/main/Yes24/${filePrefix}/`;
+            } else if (source === 'aladin') {
+                baseURL = `https://raw.githubusercontent.com/kimyih/Book/main/Aladin/${filePrefix}/`;
             }
             const url = `${baseURL}${filePrefix}_${formattedDate}.json`;
 
@@ -41,6 +46,12 @@ const BookDetails = () => {
         };
         fetchBooks();
     }, [source, formattedDate, filePrefix]);
+
+    // 책 클릭 시 모달 열기
+    const handleBookClick = (book) => {
+        setSelectedBook(book);
+        setIsModalOpen(true);
+    };
 
     return (
         <div className="Main__main">
@@ -75,23 +86,28 @@ const BookDetails = () => {
                     </div>
 
                     <ul className="book-list2">
-
                         {books.length === 0 ? (
                             <p>책을 찾을 수 없습니다.</p> // 책이 없을 때 메시지 표시
-
                         ) : (
                             books.map((book, index) => (
-                                <li key={index} className="book-item2">
-                                    <img src={book.imageURL} alt={book.title} className="book-image2" />
+                                <li key={index} className="book-item" onClick={() => handleBookClick(book)}>
+                                    <span className="book-rank">{index + 1}</span>
+                                    <img src={book.imageURL} alt={book.title} className="book-image" />
                                     <h3>{book.title}</h3>
                                     <p>{book.author}</p>
-                                    <p>{book.price}</p>
                                 </li>
                             ))
                         )}
                     </ul>
                 </div>
             </div>
+
+            {/* Book Modal */}
+            <BookModal
+                isOpen={isModalOpen}
+                onRequestClose={() => setIsModalOpen(false)}
+                book={selectedBook}
+            />
         </div>
     );
 };
