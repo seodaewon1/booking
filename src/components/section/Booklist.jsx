@@ -4,12 +4,20 @@ import SearchBar from './SearchBar'; // 검색 바 컴포넌트 import
 import 'react-datepicker/dist/react-datepicker.css';
 import ButtonGrid from '../section/ButtonGrid';
 import BookModal from './BookModal'; // BookModal 컴포넌트 import
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Swiper 스타일 import
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix }) => {
     const [kyoboBooks, setKyoboBooks] = useState([]);
     const [yes24Books, setYes24Books] = useState([]);
     const [aladinBooks, setAladinBooks] = useState([]);
-    const [fetchDate, setFetchDate] = useState(new Date('2024-06-13')); // 시작 날짜를 6월 13일로 설정
+    const [fetchDate, setFetchDate] = useState(new Date('2024-06-16')); // 시작 날짜를 6월 16일로 설정
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedBook, setSelectedBook] = useState(null); // 선택된 책 정보 상태
     const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태
@@ -29,13 +37,13 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                 ]);
 
                 if (!kyoboResponse.ok) {
-                    throw new Error(`Kyobo server response error: ${kyoboResponse.status}`);
+                    throw new Error(`Kyobo 서버 응답 에러: ${kyoboResponse.status}`);
                 }
                 if (!yes24Response.ok) {
-                    throw new Error(`Yes24 server response error: ${yes24Response.status}`);
+                    throw new Error(`Yes24 서버 응답 에러: ${yes24Response.status}`);
                 }
                 if (!aladinResponse.ok) {
-                    throw new Error(`Aladin server response error: ${aladinResponse.status}`);
+                    throw new Error(`Aladin 서버 응답 에러: ${aladinResponse.status}`);
                 }
 
                 const kyoboData = await kyoboResponse.json();
@@ -46,7 +54,7 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                 setYes24Books(yes24Data.slice(0, 10));
                 setAladinBooks(aladinData.slice(0, 10));
             } catch (error) {
-                console.error('Error fetching books:', error);
+                console.error('도서 데이터를 가져오는 중 오류 발생:', error);
             }
         };
 
@@ -85,45 +93,97 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                     {/* 검색 바 컴포넌트 */}
                     <SearchBar onSearch={handleSearch} />
 
-                    <h1>교보문고<span><Link to={`/kyobo/${filePrefix}`}>더보기</Link></span></h1>
-                    <ul className="book-list">
-                        {filterBooks(kyoboBooks).map((book, index) => (
-                            <li key={index} className="book-item" onClick={() => handleBookClick(book)}>
-                                <span className="book-rank">{index + 1}</span>
-                                <img src={book.imageURL} alt={book.title} className="book-image" />
-                                <h3>{book.title}</h3>
-                                <p>{book.author}</p>
+                    <div>
+                        <h1>교보문고<span><Link to={`/kyobo/${filePrefix}`}>더보기</Link></span></h1>
+                        <Swiper
+                            spaceBetween={30}
 
-                            </li>
-                        ))}
-                    </ul>
+                            autoplay={{
+                                delay: 10000,
+                                disableOnInteraction: false,
+                            }}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            navigation={true}
+                            slidesPerView={5} // 한 슬라이드에 하나의 항목만 표시
+                            modules={[Autoplay, Pagination, Navigation]}
+                            className="mySwiper"
+                        >
+                            {filterBooks(kyoboBooks).map((book, index) => (
+                                <SwiperSlide key={index}>
+                                    <li className="book-item" onClick={() => handleBookClick(book)}>
+                                        <span className="book-rank">{index + 1}</span>
+                                        <img src={book.imageURL} alt={book.title} className="book-image" />
+                                        <h3>{book.title}</h3>
+                                        <p>{book.author}</p>
+                                    </li>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
 
-                    <h1>Yes24<span><Link to={`/yes24/${filePrefix}`}>더보기</Link></span></h1>
-                    <ul className="book-list">
-                        {filterBooks(yes24Books).map((book, index) => (
-                            <li key={index} className="book-item" onClick={() => handleBookClick(book)}>
-                                <span className="book-rank">{index + 1}</span>
-                                <img src={book.imageURL} alt={book.title} className="book-image" />
-                                <h3>{book.title}</h3>
-                                <p>{book.author}</p>
-                            </li>
-                        ))}
-                    </ul>
+                    <div>
+                        <h1>Yes24<span><Link to={`/yes24/${filePrefix}`}>더보기</Link></span></h1>
+                        <Swiper
+                            spaceBetween={30}
 
-                    <h1 className='green'>알라딘 <span><Link to={`/aladin/${filePrefix}`}>더보기</Link></span></h1>
-                    <ul className="book-list">
-                        {filterBooks(aladinBooks).map((book, index) => (
-                            <li key={index} className="book-item" onClick={() => handleBookClick(book)}>
-                                <span className="book-rank">{index + 1}</span>
-                                <img src={book.imageURL} alt={book.title} className="book-image" />
-                                <h3>{book.title}</h3>
-                                <p>{book.author}</p>
-                            </li>
-                        ))}
-                    </ul>
+                            autoplay={{
+                                delay: 10000,
+                                disableOnInteraction: false,
+                            }}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            navigation={true}
+                            slidesPerView={5} // 한 슬라이드에 하나의 항목만 표시
+                            modules={[Autoplay, Pagination, Navigation]}
+                            className="mySwiper"
+                        >
+                            {filterBooks(yes24Books).map((book, index) => (
+                                <SwiperSlide key={index}>
+                                    <li className="book-item" onClick={() => handleBookClick(book)}>
+                                        <span className="book-rank">{index + 1}</span>
+                                        <img src={book.imageURL} alt={book.title} className="book-image" />
+                                        <h3>{book.title}</h3>
+                                        <p>{book.author}</p>
+                                    </li>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+
+                    <div>
+                        <h1 className='green'>알라딘 <span><Link to={`/aladin/${filePrefix}`}>더보기</Link></span></h1>
+                        <Swiper
+                            spaceBetween={30}
+
+                            autoplay={{
+                                delay: 10000,
+                                disableOnInteraction: false,
+                            }}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            navigation={true}
+                            slidesPerView={5} // 한 슬라이드에 하나의 항목만 표시
+                            modules={[Autoplay, Pagination, Navigation]}
+                            className="mySwiper"
+                        >
+                            {filterBooks(aladinBooks).map((book, index) => (
+                                <SwiperSlide key={index}>
+                                    <li className="book-item" onClick={() => handleBookClick(book)}>
+                                        <span className="book-rank">{index + 1}</span>
+                                        <img src={book.imageURL} alt={book.title} className="book-image" />
+                                        <h3>{book.title}</h3>
+                                        <p>{book.author}</p>
+                                    </li>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
                 </div>
             </div>
-
             {/* 모달 창 */}
             <BookModal isOpen={isModalOpen} onRequestClose={closeModal} book={selectedBook} />
         </div>
