@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar'; // 검색 바 컴포넌트 import
 import 'react-datepicker/dist/react-datepicker.css';
-import ButtonGrid from './ButtonGrid';
+import ButtonGrid from '../section/ButtonGrid';
+import BookModal from './BookModal'; // BookModal 컴포넌트 import
 
 const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix }) => {
     const [kyoboBooks, setKyoboBooks] = useState([]);
     const [yes24Books, setYes24Books] = useState([]);
     const [aladinBooks, setAladinBooks] = useState([]);
     const [fetchDate, setFetchDate] = useState(new Date('2024-06-13')); // 시작 날짜를 6월 13일로 설정
+    const [searchTerm, setSearchTerm] = useState('');
+    const [selectedBook, setSelectedBook] = useState(null); // 선택된 책 정보 상태
+    const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태
     const formattedDate = fetchDate.toISOString().slice(0, 10); // YYYY-MM-DD 형식으로 변환
 
     useEffect(() => {
@@ -15,11 +20,6 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
             const kyoboURL = `${kyoboBaseURL}${filePrefix}_${formattedDate}.json`;
             const yes24URL = `${yes24BaseURL}${filePrefix}_${formattedDate}.json`;
             const aladinURL = `${aladinBaseURL}${filePrefix}_${formattedDate}.json`;
-
-            console.log('Fetching URLs:');
-            console.log('Kyobo URL:', kyoboURL);
-            console.log('Yes24 URL:', yes24URL);
-            console.log('Aladin URL:', aladinURL);
 
             try {
                 const [kyoboResponse, yes24Response, aladinResponse] = await Promise.all([
@@ -42,65 +42,93 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                 const yes24Data = await yes24Response.json();
                 const aladinData = await aladinResponse.json();
 
-                console.log('Kyobo Data:', kyoboData);
-                console.log('Yes24 Data:', yes24Data);
-                console.log('Aladin Data:', aladinData);
-
-                setKyoboBooks(kyoboData.slice(0, 4));
-                setYes24Books(yes24Data.slice(0, 4));
-                setAladinBooks(aladinData.slice(0, 4));
+                setKyoboBooks(kyoboData.slice(0, 5));
+                setYes24Books(yes24Data.slice(0, 5));
+                setAladinBooks(aladinData.slice(0, 5));
             } catch (error) {
                 console.error('Error fetching books:', error);
             }
         };
+
         fetchBooks();
     }, [formattedDate, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix]);
+
+    // 검색어에 따라 도서 목록을 필터링하는 함수
+    const filterBooks = (books) => {
+        return books.filter(book =>
+            book.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    }; 
+
+    // 검색어 입력 시 상태 업데이트
+    const handleSearch = (searchTerm) => {
+        setSearchTerm(searchTerm);
+    };
+
+    // 책 아이템 클릭 시 모달 열기
+    const handleBookClick = (book) => {
+        setSelectedBook(book);
+        setIsModalOpen(true);
+    };
+
+    // 모달 닫기
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setSelectedBook(null);
+    };
 
     return (
         <div className="Main__Home">
             <div className="Main__main">
                 <div className="layout-container">
                     <ButtonGrid />
-                    <h1 className='green'>교보문고</h1>
+                    {/* 검색 바 컴포넌트 */}
+                    <SearchBar onSearch={handleSearch} />
+
+                    <h1>교보문고<span><Link to={`/kyobo/${filePrefix}`}>더보기</Link></span></h1>
                     <ul className="book-list">
-                        {kyoboBooks.map((book, index) => (
-                            <li key={index} className="book-item">
+                        {filterBooks(kyoboBooks).map((book, index) => (
+                            <li key={index} className="book-item" onClick={() => handleBookClick(book)}>
+                                <span className="book-rank">{index + 1}</span>
                                 <img src={book.imageURL} alt={book.title} className="book-image" />
                                 <h3>{book.title}</h3>
                                 <p>{book.author}</p>
-                                <p className='price'>{book.price}</p>
                             </li>
                         ))}
                     </ul>
-                    <span><Link to={`/kyobo/${filePrefix}`}>전체보기</Link></span>
-                    <ButtonGrid />
-                    <h1 className='sky'>Yes24</h1>
+
+                    <h1>Yes24<span><Link to={`/yes24/${filePrefix}`}>더보기</Link></span></h1>
                     <ul className="book-list">
-                        {yes24Books.map((book, index) => (
-                            <li key={index} className="book-item">
+                        {filterBooks(yes24Books).map((book, index) => (
+                            <li key={index} className="book-item" onClick={() => handleBookClick(book)}>
+                                <span className="book-rank">{index + 1}</span>
                                 <img src={book.imageURL} alt={book.title} className="book-image" />
                                 <h3>{book.title}</h3>
                                 <p>{book.author}</p>
-                                <p className='price'>{book.price}</p>
                             </li>
                         ))}
                     </ul>
-                    <span><Link to={`/yes24/${filePrefix}`}>더보기</Link></span>
-                    <ButtonGrid />
-                    <h1  className='green'>알라딘</h1>
+
+                    <h1 className='green'>알라딘 <span><Link to={`/aladin/${filePrefix}`}>더보기</Link></span></h1>
                     <ul className="book-list">
-                        {aladinBooks.map((book, index) => (
-                            <li key={index} className="book-item">
-                                <img src={book.imageURL} alt={book.title} className="book-image" />
-                                <h3>{book.title}</h3>
-                                <p>{book.author}</p>
-                                <p className='price'>{book.price}</p>
+                        {filterBooks(aladinBooks).map((book, index) => (
+                            <li key={index} className="book-item" onClick={() => handleBookClick(book)}>
+                                <div className='book_top'>
+                                    <span className="book-rank">{index + 1}</span>
+                                    <img src={book.imageURL} alt={book.title} className="book-image" />
+                                </div>
+                                <div className='book_bottom'>
+                                    <h3>{book.title}</h3>
+                                    <p>{book.author}</p>
+                                </div>
                             </li>
                         ))}
                     </ul>
-                    <span><Link to={`/aladin/${filePrefix}`}>더보기</Link></span>
                 </div>
             </div>
+
+            {/* 모달 창 */}
+            <BookModal isOpen={isModalOpen} onRequestClose={closeModal} book={selectedBook} />
         </div>
     );
 };

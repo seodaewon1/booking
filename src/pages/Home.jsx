@@ -1,8 +1,9 @@
 import React from 'react'
+import BookList from '../components/section/Booklist';
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <BookList />
   )
 }
 

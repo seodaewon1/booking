@@ -1,5 +1,5 @@
 body {
-    background-color: #fff7ef;
+    background-color: #fff;
     color: var(--black);
     overflow-y: scroll;
     /* 세로 스크롤만 보이도록 설정 */
@@ -21,12 +21,4 @@ body::-webkit-scrollbar-thumb {
     /* 스크롤바 썸 배경을 투명으로 설정 */
     border: none;
     /* 테두리 없음 */
-}
-
-/* 나머지 CSS 코드들 */
-footer {
-    width: 100%;
-    height: 150px;
-    background-color: #fff1c5;
-    margin-top: 100px;
 }

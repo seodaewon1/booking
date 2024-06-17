@@ -1,5 +1,5 @@
 import React from 'react';
-import BookList from '../components/Booklist';
+import BookList from '../components/section/Booklist';
 
 const Geonseol = () => {
     const filePrefix = 'Geonseol';

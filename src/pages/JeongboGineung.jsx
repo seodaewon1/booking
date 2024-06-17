@@ -1,5 +1,5 @@
 import React from 'react'
-import BookList from '../components/Booklist';
+import BookList from '../components/section/Booklist';
 const JeongboGineung = () => {
     const kyoboBaseURL = 'https://raw.githubusercontent.com/seodaewon1/book/main/Kyobo/JeongboGineung/';
     const yes24BaseURL = 'https://raw.githubusercontent.com/kimyih/Book/main/Yes24/JeongboGineung/';
