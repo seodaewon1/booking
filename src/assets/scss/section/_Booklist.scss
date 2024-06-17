@@ -1,10 +1,6 @@
 .book-list {
   display: flex;
-<<<<<<< HEAD
-  gap: 15px;
-=======
   gap: 3%;
->>>>>>> 4c948b7401b336ed7b5047a22307eadb2bd1f30f
   margin-bottom: 100px;
   overflow: hidden;
   padding: 10px;
@@ -15,11 +11,7 @@
   flex-direction: column;
   border-radius: 4px;
   cursor: pointer;
-<<<<<<< HEAD
-  width: 160px;
-=======
   width: 180px;
->>>>>>> 4c948b7401b336ed7b5047a22307eadb2bd1f30f
 
   &:hover {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
@@ -30,10 +22,8 @@
     display: flex;
     font-size: 16px;
     padding: 10px;
-<<<<<<< HEAD
-=======
     height: 120px;
->>>>>>> 4c948b7401b336ed7b5047a22307eadb2bd1f30f
+
   }
 
   p {
@@ -48,13 +38,8 @@
   }
 
   .book-image {
-<<<<<<< HEAD
-    width: 160px;
-    height: 233px;
-=======
     width: 180px;
     height: 248px;
->>>>>>> 4c948b7401b336ed7b5047a22307eadb2bd1f30f
     margin-bottom: 10px;
     margin: 0 auto;
     object-fit: cover;

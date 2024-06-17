@@ -6,12 +6,8 @@
 
 .layout-container {
     margin: 0 auto;
-<<<<<<< HEAD
-    width: 1060px;
-=======
     max-width: 1060px;
     width: 100%;
->>>>>>> 4c948b7401b336ed7b5047a22307eadb2bd1f30f
     position: relative;
     font-family: var(--mainKorfont);
 
@@ -59,38 +55,38 @@
     margin-bottom: 100px;
     overflow: hidden;
     padding: 10px;
-  }
-  
-  .book-item2 {
+}
+
+.book-item2 {
     display: flex;
     flex-direction: column;
     border-radius: 4px;
     cursor: pointer;
     width: 180px;
-  
+
     &:hover {
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-      transition: 0.3s;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        transition: 0.3s;
     }
-  
+
     h3 {
-      display: flex;
-      font-size: 16px;
-      padding: 10px;
-      height: 120px;
+        display: flex;
+        font-size: 16px;
+        padding: 10px;
+        height: 120px;
     }
-  
+
     p {
-      font-size: 14px;
-      padding: 10px;
-      color: #4E4E4E;
+        font-size: 14px;
+        padding: 10px;
+        color: #4E4E4E;
     }
-  
+
     .price {
-      font-size: 14px;
-      color: #4E4E4E;
-    } 
-  }
+        font-size: 14px;
+        color: #4E4E4E;
+    }
+}
 
 .book-list2 {
     display: flex;
@@ -106,7 +102,6 @@
 .book-item2 {
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     border-radius: 4px;
     cursor: pointer;
     width: 200px;
@@ -121,110 +116,107 @@
         font-size: 14px;
         padding: 10px;
         color: #4E4E4E;
-=======
-    align-items: center;
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
-    margin-bottom: 1rem;
-
-    h3 {
-        display: flex;
-        justify-content: center;
-
-    }
-
-    .book2_bottom {
-
+        align-items: center;
+        border-radius: 4px;
+        cursor: pointer;
+        position: relative;
+        margin-bottom: 1rem;
 
         h3 {
-            font-size: 16px;
-            padding: 10px;
-            height: 100px;
-            overflow: hidden;
+            display: flex;
+            justify-content: center;
+
         }
 
-        p {
+        .book2_bottom {
+
+
+            h3 {
+                font-size: 16px;
+                padding: 10px;
+                height: 100px;
+                overflow: hidden;
+            }
+
+            p {
+                font-size: 14px;
+                color: #4E4E4E;
+            }
+        }
+
+        .price {
             font-size: 14px;
             color: #4E4E4E;
         }
->>>>>>> 4c948b7401b336ed7b5047a22307eadb2bd1f30f
-    }
 
-    .price {
-        font-size: 14px;
-        color: #4E4E4E;
-    }
-
-    .book-image2 {
-        height: 200px;
-        height: 233px;
-        margin-bottom: 10px;
-        margin: 0 auto;
-        object-fit: cover;
-        object-fit: contain;
-        background-color: #ffffff;
-        border: 1px solid #c9c9c9b2;
-        border-radius: 10px;
-    }
-
-<<<<<<< HEAD
-
-=======
-    .book-rank2 {
-        position: absolute;
-        top: 150px;
-        left: 5px;
-        color: rgb(16, 40, 255);
-        font-size: 12px;
-        padding: 5px;
-        border-radius: 5px;
-        font-size: 3rem;
-        font-weight: 800;
-        text-shadow:
-          -1px -1px 0 rgb(255, 255, 255),
-          1px -1px 0 rgb(255, 255, 255),
-          -1px 1px 0 rgb(255, 255, 255),
-          1px 1px 0 rgb(255, 255, 255);
-      }
->>>>>>> 4c948b7401b336ed7b5047a22307eadb2bd1f30f
-}
-
-
-
-.BookDetails {
-    .date {
-        text-align: right;
-        margin-bottom: 10px;
-        padding: 10px;
-        z-index: 1000;
-
-        p {
+        .book-image2 {
+            height: 200px;
+            height: 233px;
             margin-bottom: 10px;
-            padding-right: 10px;
+            margin: 0 auto;
+            object-fit: cover;
+            object-fit: contain;
+            background-color: #ffffff;
+            border: 1px solid #c9c9c9b2;
+            border-radius: 10px;
+        }
+
+        .book-rank2 {
+            position: absolute;
+            top: 150px;
+            left: 5px;
+            color: rgb(16, 40, 255);
             font-size: 12px;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 3rem;
+            font-weight: 800;
+            text-shadow:
+                -1px -1px 0 rgb(255, 255, 255),
+                1px -1px 0 rgb(255, 255, 255),
+                -1px 1px 0 rgb(255, 255, 255),
+                1px 1px 0 rgb(255, 255, 255);
         }
 
-        svg {
-            width: 34px;
-            height: 34px;
-        }
 
-        input {
-            padding: 10px;
-            background-color: transparent;
-            text-align: right;
-            width: 140px;
-            font-weight: 600;
-        }
     }
 
-    .date2 {
-        display: flex;
-        justify-content: right;
 
-        .react-datepicker__month {
+
+    .BookDetails {
+        .date {
+            text-align: right;
+            margin-bottom: 10px;
+            padding: 10px;
             z-index: 1000;
+
+            p {
+                margin-bottom: 10px;
+                padding-right: 10px;
+                font-size: 12px;
+            }
+
+            svg {
+                width: 34px;
+                height: 34px;
+            }
+
+            input {
+                padding: 10px;
+                background-color: transparent;
+                text-align: right;
+                width: 140px;
+                font-weight: 600;
+            }
+        }
+
+        .date2 {
+            display: flex;
+            justify-content: right;
+
+            .react-datepicker__month {
+                z-index: 1000;
+            }
         }
     }
 }
