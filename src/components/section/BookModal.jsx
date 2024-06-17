@@ -1,6 +1,9 @@
 import React from 'react';
 import Modal from 'react-modal';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4c948b7401b336ed7b5047a22307eadb2bd1f30f
 const BookModal = ({ isOpen, onRequestClose, book }) => {
     const handleBuyClick = () => {
         if (book && book.url) {
@@ -12,7 +15,10 @@ const BookModal = ({ isOpen, onRequestClose, book }) => {
             window.open(url, '_blank');
         }
     };
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4c948b7401b336ed7b5047a22307eadb2bd1f30f
     return (
         <Modal
             isOpen={isOpen}
@@ -45,5 +51,9 @@ const BookModal = ({ isOpen, onRequestClose, book }) => {
         </Modal>
     );
 };
+<<<<<<< HEAD
 
 export default BookModal;
+=======
+export default BookModal;
+>>>>>>> 4c948b7401b336ed7b5047a22307eadb2bd1f30f
