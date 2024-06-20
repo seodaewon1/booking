@@ -72,7 +72,6 @@ const BookDetails = () => {
                     </div>
                     <h2>{getKoreanFilePrefix(filePrefix)}</h2>
                     <div className='date'>
-                        <p>{formattedDate} 기준</p>
                         <div className='date2'>
                             <LiaCalendarAltSolid />
                             <DatePicker
@@ -90,11 +89,14 @@ const BookDetails = () => {
                             <p>책을 찾을 수 없습니다.</p> // 책이 없을 때 메시지 표시
                         ) : (
                             books.map((book, index) => (
-                                <li key={index} className="book-item" onClick={() => handleBookClick(book)}>
+                                <li key={index} className="book-item2" onClick={() => handleBookClick(book)}>
                                     <span className="book-rank">{index + 1}</span>
                                     <img src={book.imageURL} alt={book.title} className="book-image" />
-                                    <h3>{book.title}</h3>
-                                    <p>{book.author}</p>
+                                    <div className='book-item2-text'>
+                                        <h3>{book.title}</h3>
+                                        <p>{book.author}</p>
+                                        <p className='price_text'>₩ {book.price}</p>
+                                    </div>
                                 </li>
                             ))
                         )}

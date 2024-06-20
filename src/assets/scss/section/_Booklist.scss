@@ -1,9 +1,144 @@
+.Main__main {
+  list-style: none;
+  margin-top: 50px;
+  padding: 30px;
+}
+
+.layout-container {
+  margin: 0 auto;
+  max-width: 1060px;
+  width: 100%;
+  position: relative;
+  font-family: var(--mainKorfont);
+
+  h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding: 80px 0px 20px;
+  }
+
+  span {
+    position: absolute;
+    right: 0;
+
+    a {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 400;
+      cursor: pointer;
+      display: inline-block;
+      color: #555555;
+      transition: all 0.3s;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-position: under;
+      }
+    }
+  }
+}
+
 .book-list {
   display: flex;
   gap: 3%;
   margin-bottom: 100px;
   overflow: hidden;
   padding: 10px;
+}
+
+.ranking {
+  width: 100%;
+  display: flex;
+
+  .rank {
+    width: 353px;
+    margin-right: 30px;
+
+    h2 {
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-bottom: 1px solid #808080;
+      font-weight: 800;
+    }
+
+    .book-num {
+      position: relative;
+      /* top: unset; */
+      /* left: unset; */
+      color: rgb(0 0 0);
+      font-size: 12px;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 rgb(255, 255, 255);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 70px;
+    }
+
+    ul {
+      display: flex;
+      margin-bottom: 20px;
+
+      li {
+        display: flex;
+
+      }
+
+      .rank-text {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h3 {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: -webkit-box;
+          word-break: break-word;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          font-size: 16px;
+          font-weight: 600;
+          padding: 10px 0px 0px;
+          // height: 56px;
+
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-position: under;
+          }
+        }
+
+        p {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: -webkit-box;
+          word-break: break-word;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          font-size: 14px;
+          padding: 10px 0px 0px;
+
+        }
+      }
+
+
+      .rank-image {
+        width: 100px;
+        height: 130px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .book-item {
@@ -13,23 +148,31 @@
   cursor: pointer;
   width: 180px;
 
-  &:hover {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-    transition: 0.3s;
-  }
 
   h3 {
-    display: flex;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    word-break: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     font-size: 16px;
-    padding: 10px;
-    height: 120px;
+    padding: 10px 0px 0px;
 
+    &:hover {
+      text-decoration: underline;
+      text-underline-position: under;
+    }
   }
+
 
   p {
     font-size: 14px;
-    padding: 10px;
+    padding: 10px 0px;
     color: #4E4E4E;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .price {
@@ -39,14 +182,12 @@
 
   .book-image {
     width: 180px;
-    height: 248px;
-    margin-bottom: 10px;
+    height: 254px;
     margin: 0 auto;
     object-fit: cover;
-    object-fit: contain;
     background-color: #ffffff;
-    border: 1px solid #c9c9c9b2;
-    border-radius: 10px;
+    border: 1px solid rgba(201, 201, 201, 0.6980392157);
+    border-radius: 0px;
   }
 
 
@@ -55,7 +196,7 @@
 .button-grid {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   justify-content: center;
 
   .button-title {
@@ -67,17 +208,22 @@
       font-weight: 600;
       font-size: 16px;
       border-radius: 20px;
-      padding: 10px;
+      padding: 10px 20px;
       background-color: #fff;
       color: #2a65ff;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 
       &:hover {
+        transition: all 0.1s;
         background-color: #2a65ff;
         color: #fff;
       }
 
     }
+  }
+
+  .button-grid__button {
+    margin-bottom: 5px;
   }
 }
 
@@ -91,23 +237,6 @@
 .book-item {
   position: relative;
   /* 위치 지정 컨텍스트 설정 */
-}
-
-.book-rank {
-  position: absolute;
-  top: 150px;
-  left: 5px;
-  color: rgb(16, 40, 255);
-  font-size: 12px;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 3rem;
-  font-weight: 800;
-  text-shadow:
-    -1px -1px 0 rgb(255, 255, 255),
-    1px -1px 0 rgb(255, 255, 255),
-    -1px 1px 0 rgb(255, 255, 255),
-    1px 1px 0 rgb(255, 255, 255);
 }
 
 .search-bar {

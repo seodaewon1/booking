@@ -8,30 +8,10 @@
 }
 
 @font-face {
-    font-family: "nexonLv1";
-    font-weight: 100;
-    font-style: normal;
-    src: url("../../fonts/nexonLv1-Light.woff2") format("woff2"),
-        url("../../fonts/nexonLv1-Light.woff") format("woff");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nexonLv1";
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
-    src: url("../../fonts/nexonLv1-Regular.woff2") format("woff2"),
-        url("../../fonts/nexonLv1-Regular.woff") format("woff");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "nexonLv1";
-    font-weight: 700;
-    font-style: normal;
-    src: url("../../fonts/nexonLv1-Bold.woff2") format("woff2"),
-        url("../../fonts/nexonLv1-Bold.woff") format("woff");
-    font-display: swap;
 }
 
 @font-face {

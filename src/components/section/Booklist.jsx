@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import SearchBar from './SearchBar'; // 검색 바 컴포넌트 import
 import 'react-datepicker/dist/react-datepicker.css';
 import ButtonGrid from '../section/ButtonGrid';
 import BookModal from './BookModal'; // BookModal 컴포넌트 import
@@ -11,7 +10,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 
 const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix }) => {
     const [kyoboBooks, setKyoboBooks] = useState([]);
@@ -90,30 +89,65 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
             <div className="Main__main">
                 <div className="layout-container">
                     <ButtonGrid />
-                    {/* 검색 바 컴포넌트 */}
-                    <SearchBar onSearch={handleSearch} />
-
+                    <h1 className="book-ranking">실시간 랭킹</h1>
+                    <div className='ranking'>
+                        <div className="rank">
+                            <h2>교보문고</h2>
+                            {filterBooks(kyoboBooks.slice(0, 3)).map((book, index) => (
+                                <ul key={index}>
+                                    <li className="book-rank" onClick={() => handleBookClick(book)}>
+                                        <img src={book.imageURL} alt={book.title} className="rank-image" />
+                                        <div className="book-num">{index + 1}</div>
+                                        <div className="rank-text">
+                                            <h3>{book.title}</h3>
+                                            <p>{book.author}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            ))}
+                        </div>
+                        <div className="rank">
+                            <h2>Yes24</h2>
+                            {filterBooks(yes24Books.slice(0, 3)).map((book, index) => (
+                                <ul key={index}>
+                                    <li className="book-rank" onClick={() => handleBookClick(book)}>
+                                        <img src={book.imageURL} alt={book.title} className="rank-image" />
+                                        <div className="book-num">{index + 1}</div>
+                                        <div className="rank-text">
+                                            <h3>{book.title}</h3>
+                                            <p>{book.author}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            ))}</div>
+                        <div className="rank">
+                            <h2>알라딘</h2>
+                            {filterBooks(aladinBooks.slice(0, 3)).map((book, index) => (
+                                <ul key={index}>
+                                    <li className="book-rank" onClick={() => handleBookClick(book)}>
+                                        <img src={book.imageURL} alt={book.title} className="rank-image" />
+                                        <div className="book-num">{index + 1}</div>
+                                        <div className="rank-text">
+                                            <h3>{book.title}</h3>
+                                            <p>{book.author}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            ))}</div>
+                    </div>
                     <div>
                         <h1>교보문고<span><Link to={`/kyobo/${filePrefix}`}>더보기</Link></span></h1>
                         <Swiper
                             spaceBetween={30}
-
-                            autoplay={{
-                                delay: 10000,
-                                disableOnInteraction: false,
-                            }}
-                            pagination={{
-                                clickable: true,
-                            }}
+                            loop={true}
                             navigation={true}
                             slidesPerView={5} // 한 슬라이드에 하나의 항목만 표시
-                            modules={[Autoplay, Pagination, Navigation]}
+                            modules={[Navigation]}
                             className="mySwiper"
                         >
                             {filterBooks(kyoboBooks).map((book, index) => (
                                 <SwiperSlide key={index}>
                                     <li className="book-item" onClick={() => handleBookClick(book)}>
-                                        <span className="book-rank">{index + 1}</span>
                                         <img src={book.imageURL} alt={book.title} className="book-image" />
                                         <h3>{book.title}</h3>
                                         <p>{book.author}</p>
@@ -127,23 +161,15 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                         <h1>Yes24<span><Link to={`/yes24/${filePrefix}`}>더보기</Link></span></h1>
                         <Swiper
                             spaceBetween={30}
-
-                            autoplay={{
-                                delay: 10000,
-                                disableOnInteraction: false,
-                            }}
-                            pagination={{
-                                clickable: true,
-                            }}
+                            loop={true}
                             navigation={true}
                             slidesPerView={5} // 한 슬라이드에 하나의 항목만 표시
-                            modules={[Autoplay, Pagination, Navigation]}
+                            modules={[Navigation]}
                             className="mySwiper"
                         >
                             {filterBooks(yes24Books).map((book, index) => (
                                 <SwiperSlide key={index}>
                                     <li className="book-item" onClick={() => handleBookClick(book)}>
-                                        <span className="book-rank">{index + 1}</span>
                                         <img src={book.imageURL} alt={book.title} className="book-image" />
                                         <h3>{book.title}</h3>
                                         <p>{book.author}</p>
@@ -157,25 +183,17 @@ const BookList = ({ title, kyoboBaseURL, yes24BaseURL, aladinBaseURL, filePrefix
                         <h1 className='green'>알라딘 <span><Link to={`/aladin/${filePrefix}`}>더보기</Link></span></h1>
                         <Swiper
                             spaceBetween={30}
-
-                            autoplay={{
-                                delay: 10000,
-                                disableOnInteraction: false,
-                            }}
-                            pagination={{
-                                clickable: true,
-                            }}
+                            loop={true}
                             navigation={true}
                             slidesPerView={5} // 한 슬라이드에 하나의 항목만 표시
-                            modules={[Autoplay, Pagination, Navigation]}
+                            modules={[Navigation]}
                             className="mySwiper"
                         >
                             {filterBooks(aladinBooks).map((book, index) => (
                                 <SwiperSlide key={index}>
-                                    <li className="book-item" onClick={() => handleBookClick(book)}>
-                                        <span className="book-rank">{index + 1}</span>
+                                    <li className="book-item" onClick={() => handleBookClick(book)} >
                                         <img src={book.imageURL} alt={book.title} className="book-image" />
-                                        <h3>{book.title}</h3>
+                                        <h3 title={book.title}>{book.title}</h3>
                                         <p>{book.author}</p>
                                     </li>
                                 </SwiperSlide>

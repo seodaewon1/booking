@@ -51,7 +51,7 @@ const BookSlide = () => {
               <div className="book-title">전기기능사</div>
               <div className="book-author">에듀윌</div>
               <div className='book-desc'>필수 핵심이론 + CBT 대비 8개년 기출문제를 수록하였다.<br /> 에듀윌만의 특별혜택, 매월 제공되는 따끈따끈한 월간 CBT 모의고사가 제공된다.<br /> 2023 개정 용어 표준화 및 국문순화을 완벽 반영하였다.</div>
-              <div className="book-see"><a href="https://www.yes24.com/Product/Goods/123817641" target="_blank" rel="noopener noreferrer">Buy Now</a></div>
+              <div className="book-see"><a href="https://www.yes24.com/Product/Goods/123817641" target="_blank" rel="noopener noreferrer">구매하기</a></div>
             </div>
           </div>
           <div className="book-cell">
@@ -62,7 +62,7 @@ const BookSlide = () => {
               <div className="book-title">정보처리기능사 실기</div>
               <div className="book-author">길벗</div>
               <div className='book-desc'>2024 시나공 정보처리기능사 실기 기본서는<br /> 기출문제를 면밀히 분석함으로써 출제 경향을 완벽하게 반영한 책으로,<br /> 매년 개정을 통해 최신 기출문제를 수록하고 있다.</div>
-              <div className="book-see book-blue"><a href="https://www.yes24.com/Product/Goods/124832424" target="_blank" rel="noopener noreferrer">Buy Now</a></div>
+              <div className="book-see book-blue"><a href="https://www.yes24.com/Product/Goods/124832424" target="_blank" rel="noopener noreferrer">구매하기</a></div>
             </div>
           </div>
           <div className="book-cell">
@@ -73,7 +73,7 @@ const BookSlide = () => {
               <div className="book-title">정보처리기능사 필기</div>
               <div className="book-author">길벗</div>
               <div className='book-desc'>2024 시나공 정보처리기능사 필기 기본서는<br /> 기출문제를 면밀히 분석함으로써 출제 경향을 완벽하게 반영한 책으로,<br /> 매년 개정을 통해 최신 기출문제를 수록하고 있습니다.</div>
-              <div className="book-see book-pink"><a href="https://www.yes24.com/Product/Goods/123183915" target="_blank" rel="noopener noreferrer">Buy Now</a></div>
+              <div className="book-see book-pink"><a href="https://www.yes24.com/Product/Goods/123183915" target="_blank" rel="noopener noreferrer">구매하기</a></div>
             </div>
           </div>
         </div>

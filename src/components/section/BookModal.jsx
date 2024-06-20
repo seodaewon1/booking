@@ -5,7 +5,7 @@ const BookModal = ({ isOpen, onRequestClose, book }) => {
         if (book && book.url) {
             let url = book.url;
             // 만약 book.url에 https://www.yes24.com/가 포함되지 않으면 앞에 추가
-            if (!book.url.includes('https://www.yes24.com/')) {
+            if (!book.url.includes('https://')) {
                 url = `https://www.yes24.com/${book.url}`;
             }
             window.open(url, '_blank');
