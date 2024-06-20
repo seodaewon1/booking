@@ -12,7 +12,6 @@ import Jige from './pages/Jige';
 import Makeup from './pages/Makeup';
 import Nail from './pages/Nail';
 import Pibu from './pages/Pibu';
-import Sobang from './pages/Sobang';
 import JeongiGisa from './pages/JeongiGisa';
 import JeongboGineung from './pages/JeongboGineung';
 import JeongboGisa from './pages/JeongboGisa';
@@ -45,7 +44,6 @@ function App() {
                     <Route path="/nail" element={<Nail />} />
                     <Route path="/pibu" element={<Pibu />} />
                     {/* <Route path="/sobang" element={<Sobang />} /> */}
-                    <Route path="/:source/:filePrefix" element={<BookDetails />} /> {/* 동적 경로 설정 */}
                     <Route path="/:source/:filePrefix" element={<BookDetails />} /> {/* 동적 경로 설정 */}
                 </Routes>
                 <Footer />
