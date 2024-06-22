@@ -1,7 +1,8 @@
 :root {
-    --mainKorfont: "Pretendard";
-    --mainEngfont: "Roboto";
+    --mainKorfont: "KoPubWorldDotum";
+    --mainEngfont: "Playfair Display", serif;
     --mainfont-nexon: "nexonLv1";
+    --fontR: "RIDIBatang";
 
     --black: #000;
     --black100: #000;
@@ -19,7 +20,7 @@
     --white600: #FFFFFD;
 
     // 폰트 셋팅
-    font-family:  var(--mainEngfont), var(--mainKorfont);
+    font-family: var(--mainKorfont), var(--mainEngfont);
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
