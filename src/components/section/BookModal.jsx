@@ -11,6 +11,8 @@ const BookModal = ({ isOpen, onRequestClose, book }) => {
             window.open(url, '_blank');
         }
     };
+
+
     return (
         <Modal
             isOpen={isOpen}

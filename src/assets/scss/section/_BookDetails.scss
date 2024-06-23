@@ -8,6 +8,7 @@
     padding: 10px 0px;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .BookDetails {
@@ -28,7 +29,6 @@
     flex-direction: row;
     padding: 20px 0px;
     border-bottom: 1px solid #808080;
-    cursor: pointer;
     width: 100%;
     position: relative;
 
@@ -55,6 +55,7 @@
         height: 240px;
         object-fit: cover;
         border: 1px solid black;
+        cursor: pointer;
     }
 
     .book-item2-text {
@@ -68,10 +69,16 @@
 
         h3 {
             display: flex;
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 600;
             padding: 10px;
             transition: all 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+                text-underline-position: under;
+            }
         }
 
         p {
@@ -80,7 +87,6 @@
             color: #4E4E4E;
             align-items: center;
             border-radius: 4px;
-            cursor: pointer;
             position: relative;
             margin-bottom: 1rem;
 
@@ -91,12 +97,33 @@
         }
     }
 
-    &:hover {
-        .book-item2-text {
-            h3 {
-                color: rgb(16, 40, 255);
+
+
+    .book-item2-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        .book2-detail,
+        .book2-buy {
+            margin-top: 5px;
+            padding: 10px 40px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 30px;
+            font-size: 16px;
+
+            &:hover {
+                background-color: #2a65ff;
+                color: var(--white);
             }
         }
+
     }
 }
 

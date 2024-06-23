@@ -1,11 +1,13 @@
 .flickity-viewport {
-  overflow: hidden;
   position: relative;
   height: 400px;
+  overflow: visible;
   /* 변경된 높이 값 */
 }
 
+
 .flickity-slider {
+
   position: absolute;
   width: 100%;
   display: flex;
@@ -15,8 +17,6 @@
   width: 100%;
   margin-bottom: 30px;
 }
-
-.book {}
 
 .book-cell {
   display: flex;
@@ -79,7 +79,7 @@
 .book-desc {
   font-size: 1rem;
   width: 500px;
-  color: #535353;
+  color: #252525;
   font-family: var(--mainKorfont);
   margin-bottom: 20px;
 }

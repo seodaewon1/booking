@@ -3,12 +3,13 @@ import { Link, useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { LiaCalendarAltSolid } from "react-icons/lia";
 import detailmenus from '../../data/headerMenu';
-import BookModal from './BookModal';
+import BookModal from './BookModal'; // BookModal import
+import 'react-datepicker/dist/react-datepicker.css';
 
 const BookDetails = () => {
     const { source, filePrefix } = useParams(); // 경로 매개변수 추출
     const [books, setBooks] = useState([]);
-    const [fetchDate, setFetchDate] = useState(new Date('2024-06-16')); // 시작 날짜를 6월 13일로 설정
+    const [fetchDate, setFetchDate] = useState(new Date('2024-06-22')); // 시작 날짜를 6월 13일로 설정
     const formattedDate = fetchDate.toISOString().slice(0, 10); // YYYY-MM-DD 형식으로 변환
     const today = new Date();
     const [activeButton, setActiveButton] = useState(0); // 활성화된 버튼 인덱스 상태 추가
@@ -53,6 +54,17 @@ const BookDetails = () => {
         setIsModalOpen(true);
     };
 
+    // 책 구매 클릭 시 링크 열기
+    const handleBuyClick = (book) => {
+        if (book && book.url) {
+            let url = book.url;
+            if (!url.includes('https://')) {
+                url = `https://www.yes24.com/${url}`;
+            }
+            window.open(url, '_blank');
+        }
+    };
+
     return (
         <div className="Main__main">
             <div className="layout-container">
@@ -89,13 +101,17 @@ const BookDetails = () => {
                             <p>책을 찾을 수 없습니다.</p> // 책이 없을 때 메시지 표시
                         ) : (
                             books.map((book, index) => (
-                                <li key={index} className="book-item2" onClick={() => handleBookClick(book)}>
+                                <li key={index} className="book-item2">
                                     <span className="book-rank">{index + 1}</span>
-                                    <img src={book.imageURL} alt={book.title} className="book-image" />
+                                    <img src={book.imageURL} alt={book.title} className="book-image" onClick={() => handleBuyClick(book)} />
                                     <div className='book-item2-text'>
-                                        <h3>{book.title}</h3>
+                                        <h3 onClick={() => handleBuyClick(book)}>{book.title}</h3>
                                         <p>{book.author}</p>
                                         <p className='price_text'>₩ {book.price}</p>
+                                    </div>
+                                    <div className='book-item2-info'>
+                                        {/* <button className='book2-detail'>상세보기</button> */}
+                                        <button className='book2-buy' onClick={() => handleBuyClick(book)}>바로구매</button>
                                     </div>
                                 </li>
                             ))
