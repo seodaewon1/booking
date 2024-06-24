@@ -18,23 +18,25 @@ YES24, 알라딘, 교보문고에서 제공하는 문제집의 최신 랭킹을 
 날짜별로 각 사이트의 책 랭킹을 볼 수 있으며, 메인 페이지에는 교보문고, Yes24, 알라딘 이 3개의 각각의 카테고리의 문제집을 바로 볼 수 있습니다.
 3. 구매 이동 :
 메인페이지에는 각 서점의 랭킹과 문제집 이미지, 저자, 가격 각 사이트로 구매하러 갈 수 있는 링크가 제공되어 사용자가 편히 비교하고 바로 구매하러 이동 할 수 있게 했습니다.
-<br>
-<br>
-## 사이트 디테일   
 
-![img] (https://github.com/kimyih/booking/assets/163376151/de53cafd-f2f6-423b-8d3a-e162a3d4141a)   
+## 사이트
+
+![img](src/assets/img/booking1.png)
+
 - 자동으로 배너가 움직이며, 3개의 책을 소개합니다.
-  
-![img] (https://github.com/kimyih/booking/assets/163376151/115206ab-893a-497b-9266-02f784b4dbf2)   
-- 교보문고, YES24, 알라딘 의 그 날의 랭킹을 바로 비교해볼 수 있습니다.   
+
+![img](src/assets/img/booking2.png)
+
+- 교보문고, YES24, 알라딘 의 그 날의 랭킹을 바로 비교해볼 수 있습니다.
 - TOP3 랭킹을 확인할 수 있습니다.
-  
-![img] (https://github.com/kimyih/booking/assets/163376151/132892f5-0541-4117-a438-387099cf6dfb)   
-- 해당 책의 교보문고, YES24, 알라딘의 책 랭킹을 바로 볼 수 있습니다.   
-- 바로 구매를 클릭하면 해당 사이트의 책을 구매하는 링크로 이동합니다.   
 
+![img](src/assets/img/booking3.png)
 
-## :망치와_곡괭이: 사용 기술
+- 해당 책의 교보문고, YES24, 알라딘의 책 랭킹을 바로 볼 수 있습니다.
+- 바로 구매를 클릭하면 해당 사이트의 책을 구매하는 링크로 이동합니다.
+
+## :망치와\_곡괭이: 사용 기술
+
 <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e8673351981bb2163e622bb9dbff0ccb34932efb83c8278db594ecf1f6fa9b83/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a6176615363726970742d79656c6c6f773f7374796c653d666f722d7468652d6261646765266c6f676f3d6a617661736372697074266c6f676f436f6c6f723d7768697465"><img alt="JavaScript" src="https://camo.githubusercontent.com/e8673351981bb2163e622bb9dbff0ccb34932efb83c8278db594ecf1f6fa9b83/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a6176615363726970742d79656c6c6f773f7374796c653d666f722d7468652d6261646765266c6f676f3d6a617661736372697074266c6f676f436f6c6f723d7768697465" height="25px" data-canonical-src="https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge&amp;logo=javascript&amp;logoColor=white" style="max-width: 100%;"></a>
 <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9400dde740e192fab5414af591675fc97f6321267d777746a567d15accb7cf5d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f52656163742d626c75653f7374796c653d666f722d7468652d6261646765266c6f676f3d7265616374266c6f676f436f6c6f723d7768697465"><img alt="React" src="https://camo.githubusercontent.com/9400dde740e192fab5414af591675fc97f6321267d777746a567d15accb7cf5d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f52656163742d626c75653f7374796c653d666f722d7468652d6261646765266c6f676f3d7265616374266c6f676f436f6c6f723d7768697465" height="25px" data-canonical-src="https://img.shields.io/badge/React-blue?style=for-the-badge&amp;logo=react&amp;logoColor=white" style="max-width: 100%;"></a>
 <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ff5bae8b465bd0867d4f1b51360e74b93efc962e62c025001c0af0cdf067d496/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f507974686f6e2d3134333534433f7374796c653d666f722d7468652d6261646765266c6f676f3d707974686f6e266c6f676f436f6c6f723d7768697465"><img alt="Python" src="https://camo.githubusercontent.com/ff5bae8b465bd0867d4f1b51360e74b93efc962e62c025001c0af0cdf067d496/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f507974686f6e2d3134333534433f7374796c653d666f722d7468652d6261646765266c6f676f3d707974686f6e266c6f676f436f6c6f723d7768697465" height="25px" data-canonical-src="https://img.shields.io/badge/Python-14354C?style=for-the-badge&amp;logo=python&amp;logoColor=white" style="max-width: 100%;"></a>
@@ -42,6 +44,7 @@ YES24, 알라딘, 교보문고에서 제공하는 문제집의 최신 랭킹을 
 <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/bfe6a48836e87b13a16f1f56f88fee428475c2ac29247992ec9b8bcc7154f881/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f48544d4c352d4533344632363f7374796c653d666f722d7468652d6261646765266c6f676f3d68746d6c35266c6f676f436f6c6f723d7768697465"><img alt="html5" src="https://camo.githubusercontent.com/bfe6a48836e87b13a16f1f56f88fee428475c2ac29247992ec9b8bcc7154f881/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f48544d4c352d4533344632363f7374796c653d666f722d7468652d6261646765266c6f676f3d68746d6c35266c6f676f436f6c6f723d7768697465" height="25px" data-canonical-src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&amp;logo=html5&amp;logoColor=white" style="max-width: 100%;"></a>
 <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/472c222e8f240a48ae51cd9b082a1b857be809dcd851a25150890c2da50c13a5/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f435353332d3135373242363f7374796c653d666f722d7468652d6261646765266c6f676f3d63737333266c6f676f436f6c6f723d7768697465"><img alt="Css3" src="https://camo.githubusercontent.com/472c222e8f240a48ae51cd9b082a1b857be809dcd851a25150890c2da50c13a5/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f435353332d3135373242363f7374796c653d666f722d7468652d6261646765266c6f676f3d63737333266c6f676f436f6c6f723d7768697465" height="25px" data-canonical-src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&amp;logo=css3&amp;logoColor=white" style="max-width: 100%;"></a>
 <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a57a9d81e0d6ff9eb70a3ed5f41916038f384f1965688ddb4ccfeaf6da5c2eef/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6a71756572792d2532333037363941442e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d6a7175657279266c6f676f436f6c6f723d7768697465"><img alt="Jquery" src="https://camo.githubusercontent.com/a57a9d81e0d6ff9eb70a3ed5f41916038f384f1965688ddb4ccfeaf6da5c2eef/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6a71756572792d2532333037363941442e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d6a7175657279266c6f676f436f6c6f723d7768697465" height="25px" data-canonical-src="https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&amp;logo=jquery&amp;logoColor=white" style="max-width: 100%;"></a>
+
 </div>
 </p>
 ### 프로젝트 기대 효과:
